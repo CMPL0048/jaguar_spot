@@ -1,0 +1,748 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0d0e0d;
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL CON PASOS PROGRESIVOS
+   ============================================ */
+
+/* Barra de progreso visual */
+.progress-container {
+    max-width: 900px;
+    margin: 0 auto 30px;
+    padding: 0 30px;
+}
+
+.progress-bar-wrapper {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    height: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #f3d9b8 0%, #cfA36b 100%);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 10px;
+    width: 0%;
+}
+
+/* Indicadores de pasos */
+.steps-indicator {
+    display: flex;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    position: relative;
+}
+
+.steps-indicator::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+
+.step-item {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.step-item.active .step-circle {
+    background: linear-gradient(135deg, #f3d9b8 0%, #cfA36b 100%);
+    border-color: #cfA36b;
+    color: #0d0e0d;
+    box-shadow: 0 0 20px rgba(243, 217, 184, 0.4);
+}
+
+.step-item.completed .step-circle {
+    background: #4caf50;
+    border-color: #4caf50;
+    color: white;
+}
+
+.step-label {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+}
+
+.step-item.active .step-label {
+    color: #f3d9b8;
+    font-weight: 600;
+}
+
+/* ============================================
+   SECCIÓN PRINCIPAL DEL FORMULARIO
+   ============================================ */
+
+.section_color {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 40px;
+    background: rgba(16, 18, 16, 0.6);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Imagen lateral */
+.login-image {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    
+}
+
+.login-image img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    opacity: 0.9;
+}
+
+/* Oculta todas las imágenes de pasos por defecto */
+.login-image .step-image {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out; 
+}
+
+/* Muestra solo la imagen activa */
+.login-image .step-image.active {
+    display: block;
+}
+
+/* Contenido del formulario */
+.login-content {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-content h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #f3d9b8;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.section-subtitle {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 30px;
+    font-weight: 400;
+    text-align: center;
+}
+
+/* ============================================
+   PASOS DEL FORMULARIO (OCULTAR/MOSTRAR)
+   ============================================ */
+
+.form-step {
+    display: none;
+    animation: slideIn 0.4s ease;
+}
+
+.form-step.active {
+    display: block;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ============================================
+   INPUTS Y FORMULARIOS
+   ============================================ */
+
+.input-group {
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+    margin-top: 30px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 8px;
+}
+
+.input-group label .required {
+    color: #ff6b6b;
+    margin-left: 3px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+/* Iconos de validación */
+.input-wrapper .validation-icon {  /* <-- ¡AÑADE ESTO! */
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    display: none;  /* Esta regla ahora ganará la batalla de especificidad */
+    pointer-events: none;
+}
+
+.text_field {
+    width: 100%;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0 15px;
+    color: white;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.text_field:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #f3d9b8;
+    box-shadow: 0 0 0 4px rgba(243, 217, 184, 0.1);
+}
+
+.text_field::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Estados de validación */
+.text_field.valid {
+    border-color: #4caf50;
+    background: rgba(76, 175, 80, 0.08);
+}
+
+.text_field.invalid {
+    border-color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.08);
+}
+
+/* Iconos de validación */
+.validation-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    display: none;
+    pointer-events: none;
+}
+
+.text_field.valid ~ .validation-icon.success {
+    display: block;
+    color: #4caf50;
+}
+
+.text_field.invalid ~ .validation-icon.error {
+    display: block;
+    color: #ff6b6b;
+}
+
+/* Mensajes de error */
+.error-message {
+    font-size: 13px;
+    color: #ff6b6b;
+    margin-top: 6px;
+    display: none;
+    font-weight: 500;
+}
+
+.text_field.invalid ~ .error-message {
+    display: block;
+}
+
+/* Mensajes de ayuda */
+.help-text {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 6px;
+    font-weight: 400;
+}
+
+/* ============================================
+   SELECT PERSONALIZADO
+   ============================================ */
+
+select.text_field {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+select.text_field option {
+    background: #1a1d1a;
+    color: white;
+    padding: 10px;
+}
+
+/* ============================================
+   CONTRASEÑAS Y TOGGLE
+   ============================================ */
+
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 50px;
+}
+
+.password-container .validation-icon {
+    right: 50px;
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 18px;
+    transition: color 0.3s;
+    padding: 5px;
+}
+
+.toggle-password:hover {
+    color: #f3d9b8;
+}
+
+.toggle-password i {
+    pointer-events: none;
+}
+
+/* Medidor de fuerza de contraseña */
+.password-strength {
+    margin-top: 8px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.password-strength-bar {
+    height: 100%;
+    width: 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.password-strength-bar.weak {
+    width: 33%;
+    background: #ff6b6b;
+}
+
+.password-strength-bar.medium {
+    width: 66%;
+    background: #ffd93d;
+}
+
+.password-strength-bar.strong {
+    width: 100%;
+    background: #4caf50;
+}
+
+.password-hint {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 6px;
+}
+
+/* ============================================
+   VEHÍCULOS DINÁMICOS
+   ============================================ */
+
+h2 {
+    font-size: 22px;
+    color: #f3d9b8;
+    font-weight: 700;
+    margin: 30px 0 20px;
+}
+
+#vehiculos-container {
+    width: 100%;
+}
+
+.vehiculo {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.vehiculo:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(243, 217, 184, 0.3);
+}
+
+.vehiculo h3 {
+    font-size: 18px;
+    color: #f3d9b8;
+    margin: 0 0 20px 0;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.remove-vehicle-btn {
+    background: rgba(255, 107, 107, 0.2);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    color: #ff6b6b;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.remove-vehicle-btn:hover {
+    background: rgba(255, 107, 107, 0.3);
+    transform: scale(1.05);
+}
+
+/* Grid para inputs de vehículo */
+.vehicle-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+
+.btn {
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(rgb(57, 53, 46), rgb(35, 33, 29));
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: linear-gradient(rgb(38, 36, 31), rgb(14, 14, 14));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #f3d9b8 0%, #cfA36b 100%);
+    color: #0d0e0d;
+    box-shadow: 0 4px 20px rgba(243, 217, 184, 0.3);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 10px rgb(243, 217, 184);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Botones de navegación */
+.form-navigation {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.form-navigation .btn {
+    flex: 1;
+}
+
+/* Botón agregar vehículo */
+#agregar-vehiculo {
+    background: rgba(243, 217, 184, 0.1);
+    border: 2px dashed rgba(243, 217, 184, 0.3);
+    color: #f3d9b8;
+    margin-top: 15px;
+}
+
+#agregar-vehiculo:hover {
+    background: rgba(243, 217, 184, 0.15);
+    border-color: #f3d9b8;
+}
+
+/* ============================================
+   TEXTO Y ENLACES
+   ============================================ */
+
+p[id="small"] {
+    font-size: 14px;
+    color: rgb(226, 226, 226);
+    text-align: center;
+    margin: 20px 0 10px;
+    font-weight: 400;
+}
+
+p[id="small"] a {
+    color: #f3d9b8;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+p[id="small"] a:hover {
+    color: #cfA36b;
+    text-decoration: underline;
+}
+
+/* ============================================
+   ACCESIBILIDAD
+   ============================================ */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+*:focus-visible {
+    outline: 2px solid #f3d9b8;
+    outline-offset: 2px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .section_color {
+        width: 92%;
+        padding: 30px;
+    }
+
+    .login-image {
+        width: 38%;
+    }
+
+    .login-content {
+        width: 58%;
+    }
+
+    .vehicle-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+    .section_color {
+        flex-direction: column;
+        align-items: center;
+        width: 94%;
+        padding: 24px;
+        margin-top: 20px;
+    }
+
+    .login-image {
+        width: 100%;
+        max-width: 240px;
+        margin-bottom: 20px;
+        padding-top: 0;
+    }
+
+    .login-image img {
+        max-width: 200px;
+    }
+
+    .login-content {
+        width: 100%;
+    }
+
+    .login-content h1 {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .section-subtitle {
+        text-align: center;
+    }
+
+    .progress-container {
+        padding: 0 15px;
+    }
+
+    .steps-indicator {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .step-item {
+        flex: 1 1 calc(33.33% - 8px);
+        min-width: 80px;
+    }
+
+    .step-circle {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .step-label {
+        font-size: 11px;
+    }
+
+    .vehiculo {
+        padding: 20px;
+    }
+
+    .form-navigation {
+        flex-direction: column-reverse;
+    }
+
+    .text_field {
+        height: 46px;
+        font-size: 16px; /* Evita zoom en iOS */
+    }
+}
+
+@media (max-width: 480px) {
+    .section_color {
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .login-content h1 {
+        font-size: 22px;
+    }
+
+    .input-group {
+        margin-bottom: 18px;
+    }
+
+    .vehiculo {
+        padding: 16px;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Prevenir zoom en inputs en iOS */
+@media screen and (max-width: 768px) {
+    select.text_field,
+    textarea.text_field,
+    input[type="text"].text_field,
+    input[type="password"].text_field,
+    input[type="email"].text_field,
+    input[type="number"].text_field {
+        font-size: 16px;
+    }
+}

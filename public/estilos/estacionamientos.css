@@ -1,0 +1,103 @@
+/* === ESTILOS PARA: puestos.css === */
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.titulo-estacionamiento {
+    font-size: 28px;
+    font-weight: 800;
+    margin-top: 20px;
+}
+
+.subtitulo-estacionamiento {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #B0B0B0;
+}
+
+/* Contenedor de puestos */
+.parking-lot {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 15px;
+    padding: 20px;
+    margin: auto;
+    overflow-x: auto;
+}
+
+/* Botón de puesto */
+.puesto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.puesto i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+/* Colores por tipo de puesto */
+.puesto.disponible {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.puesto.ocupado {
+    background-color: #D32F2F;
+    color: white;
+}
+
+.puesto.discapacitado {
+    background-color: #1976D2;
+    color: white;
+}
+
+.puesto:hover {
+    transform: scale(1.1);
+}
+
+/* Navbar de estacionamientos */
+.navbar-estacionamientos {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background-color: #1E1E1E;
+    padding: 10px 0;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.navbar-estacionamientos .nav-link {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #B0B0B0;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-estacionamientos .nav-link:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-estacionamientos .nav-link.active {
+    background-color: #4CAF50;
+    color: white;
+    pointer-events: none;
+}

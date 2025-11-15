@@ -1,0 +1,135 @@
+/* Fuente y colores base */
+body {
+    font-family: 'Inter', sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor Principal */
+.reservas-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Título */
+.titulo {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Mensaje si no hay reservas */
+.no-data {
+    text-align: center;
+    font-size: 16px;
+    color: #bbb;
+    margin-top: 20px;
+}
+
+/* Grid de Reservas */
+.reservas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    justify-content: center;
+}
+
+/* Tarjetas de Reserva */
+.reserva-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.2s ease, background 0.3s ease;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Hover */
+.reserva-card:hover {
+    transform: scale(1.03);
+}
+
+/* Estado de la reserva */
+.estado {
+    font-weight: bold;
+    padding: 6px;
+    border-radius: 5px;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.estado-pendiente {
+    background-color: #f7b731;
+    color: #222;
+}
+
+.estado-aceptado {
+    background-color: #28a745;
+    color: white;
+}
+
+.estado-rechazado {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Tipo de puesto */
+.puesto-tipo {
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.puesto-tipo.discapacitado {
+    background-color: #007bff;
+    color: white;
+}
+
+.puesto-tipo.normal {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Fechas de solicitud y aprobación */
+.fecha-info {
+    font-size: 13px;
+    margin-top: 8px;
+    color: #bbb;
+}
+
+/* QR Container */
+
+.qr-container{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+/* QR Link */
+.qr-link a {
+    color: #3498db;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.qr-link a:hover {
+    text-decoration: underline;
+}
+
+/* Mensaje de rechazo */
+.mensaje-rechazo {
+    font-size: 13px;
+    color: #ff5555;
+    margin-top: 8px;
+}

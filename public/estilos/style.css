@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow-y: scroll; /* Permite solo el scroll vertical */
+    background-color: #0d0e0d;
+    overflow-x: hidden;
+}
+
+.contenedor{
+    width: 92%;
+    margin: auto;
+
+}
+
+/* Tablets */
+@media only screen and (min-width:576px){
+    .contenedor{
+        width: 540px;
+    }
+}
+
+@media only screen and (min-width:1200px){
+    .contenedor{
+        width: 1140px;
+    }
+}
+
+nav {
+    display: flex; /* Utilizamos flexbox para alinear los elementos */
+    justify-content: space-between; /* Alinea los elementos con espacio entre ellos */
+    align-items: center; /* Centra los elementos verticalmente */
+    padding-top: 50px;
+    padding-bottom: 0px;
+    color: rgb(243, 217, 184);
+    height: 80px; /* Aseguramos una altura para el navbar */
+}
+
+nav .logo-container {
+    display: flex;
+    align-items: center;
+}
+
+nav .icon {
+    width: 120px;
+    height: auto;
+    cursor: pointer;
+}
+
+nav h1 {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    font-size: 30px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px; /* Espacio entre los elementos de la lista */
+}
+
+nav ul li a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: rgb(243, 217, 184); /* Color de los enlaces */
+    font-size: 18px;
+    transition: color 0.3s; /* Efecto de transición en el color */
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+}
+
+nav ul li a:hover {
+    color: rgb(207, 163, 107); /* Color del enlace al pasar el mouse */
+}
+
+.curved-green {
+    background: linear-gradient(#181f17, #0e0f0e);
+    color: #FFFBF4;
+}
+
+.curved-green h1 {
+    margin-top: 0;
+    font-size: 60px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+}
+
+.curved-green p {
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0 5rem 0;
+}
+
+.curved-green svg {
+    display: block;
+}
+
+.section_color{
+    background: linear-gradient(rgb(10, 10, 10, .5), rgb(10, 10, 10, .6));
+    border-radius: 25px;
+    width: 100%;
+    color: white;
+}
+
+.section_color h1{
+    padding-top: 50px;
+    margin: 0;
+    font-family: "Poppins", serif;
+    font-size: 48px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.section_color h2{
+    padding-bottom: 50px;
+    margin: 0;
+    font-family: "Poppins", serif;
+    font-size: 32px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.section_color img {
+    display: block;
+    margin: 0 auto;
+    width: 720px;
+    padding-bottom: 50px;
+    border-radius: 25px;
+}
+
+.section_color p{
+    font-family: "Poppins", serif;
+    font-size: 26px;
+    padding: 0px 50px;
+    padding-top: 0;
+    margin: 0;
+}
+
+.btn {
+    display: flex;
+    justify-content: center; /* Centrar texto horizontalmente */
+    align-items: center; /* Centrar texto verticalmente */
+    width: 250px;
+    height: 50px; /* Agregar altura para que flex funcione bien */
+    margin: 0 auto; /* Centrar en el contenedor */
+    
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    
+    background: linear-gradient(rgb(57, 53, 46), rgb(35, 33, 29));
+    color: white; /* Para que el texto sea visible */
+    border: none;
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer;
+    text-decoration: none; /* Si lo usas en un <a> */
+    text-align: center;
+    
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out; 
+}
+
+.btn:hover {
+    background: linear-gradient(rgb(38, 36, 31), rgb(14, 14, 14));
+    color: #d5d5d5; /* Cambiar color de texto al hacer hover */
+}
+
+
+.btn img{
+    width: 28px;
+    margin: 0;
+    padding: 0;
+} 
+
+.logout-link {
+    background: none;
+    border: none;
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: rgb(243, 217, 184); /* Color de los enlaces */
+    font-size: 18px;
+    transition: color 0.3s; /* Efecto de transición en el color */
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    padding: 0;
+    cursor: pointer;
+}
+
+.logout-link:hover {
+    color: rgb(207, 163, 107); /* Color del enlace al pasar el mouse */
+}
+
+/* Estilo para el botón de cerrar sesión */
+.logout-link {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.logout-link:hover {
+    color: #ff4444;
+}
+
+/* =========================
+   Overrides responsivos (añadir al final)
+   ========================= */
+
+/* Evita “brinco” horizontal por usar 100vw en móviles */
+@media (max-width: 768px){
+  body{
+    width: 100%;           /* en lugar de 100vw */
+    min-height: 100vh;
+  }
+}
+
+/* Contenedor: fluido con límites tipo Bootstrap */
+.contenedor{
+  width: min(92%, 1140px);   /* 92% hasta tope */
+}
+@media (min-width: 576px){
+  .contenedor{ width: 540px; }
+}
+@media (min-width: 768px){
+  .contenedor{ width: 720px; }
+}
+@media (min-width: 992px){
+  .contenedor{ width: 960px; }
+}
+@media (min-width: 1200px){
+  .contenedor{ width: 1140px; }
+}
+
+/* ---------- Header / Nav ---------- */
+/* Que el nav pueda pasar a dos líneas sin romper estilo */
+@media (max-width: 992px){
+  nav{
+    padding-top: 24px;    /* menos aire arriba en tablet/móvil */
+    height: auto;
+    flex-wrap: wrap;      /* permite 2 líneas: logo arriba, menú abajo */
+    row-gap: 8px;
+  }
+  nav .logo-container{ flex: 1 1 auto; }
+  nav ul{
+    flex-wrap: wrap;      /* el menú puede envolver */
+    justify-content: center;
+    gap: 10px;
+  }
+  nav ul li{ margin-left: 0; }
+}
+
+@media (max-width: 768px){
+  nav .icon{ width: 72px; }     /* logo más compacto */
+  nav h1{ font-size: 24px; }    /* título más compacto */
+  nav ul li a,
+  .logout-link{ font-size: 16px; }
+  nav{ padding-top: 16px; }
+}
+
+@media (max-width: 480px){
+  nav .icon{ width: 60px; }
+  nav h1{ font-size: 20px; }
+  nav ul{
+    overflow-x: auto;     /* si aún no cabe, scroll horizontal suave */
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ---------- Sección “curved-green” (header/footer) ---------- */
+/* Solo ajustes de tamaño; no cambia colores ni degradados */
+@media (max-width: 768px){
+  .curved-green h1{ font-size: 36px; }
+  .curved-green p{ margin: 0 1rem; }
+}
+@media (max-width: 480px){
+  .curved-green h1{ font-size: 30px; }
+}
+
+/* Asegura que los SVGs curvos escalen bien */
+.curved-green svg{
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- Secciones generales ---------- */
+@media (max-width: 992px){
+  .section_color h1{ font-size: 40px; }
+  .section_color h2{ font-size: 28px; }
+  .section_color p{ font-size: 22px; }
+}
+@media (max-width: 768px){
+  .section_color{
+    border-radius: 18px;
+  }
+  .section_color h1{
+    padding-top: 28px;
+    font-size: 34px;
+  }
+  .section_color h2{
+    padding-bottom: 28px;
+    font-size: 24px;
+  }
+  .section_color p{
+    font-size: 18px;
+    padding: 0 20px 20px;
+  }
+  .section_color img{
+    width: 100% !important;   /* antes 720px, ahora fluido */
+    height: auto;
+    padding-bottom: 24px;
+  }
+}
+
+/* Botones: que no se desborden en móvil */
+@media (max-width: 480px){
+  .btn{
+    width: 100%;
+    max-width: 320px;      /* mantiene proporción de tu botón */
+  }
+}
+
+/* --- Header nav: neutraliza fondos/boxes en los links --- */
+header nav ul li a,
+header nav ul li a:visited{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;            /* espacio entre icono y texto */
+  padding: 0 !important;  /* mantenemos tu look sin caja */
+}
+
+/* No agregamos fondo en hover; solo conserva tu cambio de color */
+header nav ul li a:hover{
+  background: transparent !important;
+}
+
+/* --- Scroll del menú en móvil sin barrita vertical --- */
+@media (max-width: 480px){
+  header nav ul{
+    flex-wrap: nowrap;            /* una sola fila */
+    overflow-x: auto;
+    overflow-y: hidden;           /* quita la barra vertical */
+    white-space: nowrap;          /* evita saltos de línea dentro */
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* En anchos mayores seguimos permitiendo envolver si hace falta */
+@media (max-width: 992px){
+  header nav{
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+  header nav ul{
+    /* aquí pueden envolver; el caso especial de <=480px ya se controla arriba */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  header nav ul li{ margin-left: 0; }
+}
+
+/* =========================
+   INICIO (home) – overrides responsivos
+   ========================= */
+
+/* Imagen principal: fluida sin perder tu límite de 720px */
+.section_color .img_inicio{
+  width: 100%;
+  max-width: 720px;     /* conserva tu tamaño en desktop */
+  height: auto;
+  display: block;
+  margin: 0 auto 24px;  /* centrada con aire inferior */
+  border-radius: 25px;  /* respeta tu estilo */
+}
+
+/* Botón “Comenzar a usar”: que no se desborde en teléfonos */
+@media (max-width: 480px){
+  .btn{
+    width: 100%;
+    max-width: 320px;    /* ya usamos este patrón global */
+    height: 48px;
+    font-size: 18px;
+  }
+  .btn img{ width: 24px; }
+}
+
+/* Tipografía/espacios del hero en móviles */
+@media (max-width: 768px){
+  .section_color h1{ font-size: 34px; }
+  .section_color h2{ font-size: 24px; }
+  .section_color p{
+    font-size: 18px;
+    padding: 0 20px 20px;
+  }
+}
+
+/* Evita cualquier scroll lateral accidental en móvil */
+@media (max-width: 768px){
+  body{ width: 100%; min-height: 100vh; }
+}
+
+@media (max-width: 480px){
+  header nav ul{
+    flex-wrap: wrap;     /* envolver */
+    overflow-x: hidden;  /* sin scroll lateral */
+    white-space: normal;
+  }
+}
+
+/* ==== Kill horizontal scroll (override global) ==== */
+html,
+body{
+  width: 100% !important;     /* reemplaza el 100vw efectivamente */
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* Evita que el header/footer o el contenedor propaguen desbordes */
+header, footer, .contenedor{
+  overflow-x: clip;           /* no afecta la vista; solo corta desbordes */
+}
+
+/* Cualquier media embebido e imágenes nunca deben exceder el ancho */
+img, iframe, svg{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* El SVG curvo del header/footer debe escalar sin generar scroll */
+.curved-green svg{
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* El menú no puede medir más que el viewport */
+header nav ul{
+  max-width: 100%;
+  box-sizing: border-box;
+}

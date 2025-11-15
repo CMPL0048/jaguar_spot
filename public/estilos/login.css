@@ -1,0 +1,291 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0d0e0d;
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+}
+
+/* ============================================
+   SECCIÓN PRINCIPAL (Maquetación de Login)
+   ============================================ */
+
+.section_color {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centra verticalmente la imagen y el form */
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: -100px; /* <- Conserva tu estilo original */
+    padding: 40px;      /* <- Aumentado para más aire (como signup) */
+    background: rgba(16, 18, 16, 0.6);
+    border-radius: 20px; /* <- Como signup */
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Imagen lateral */
+.login-image {
+    width: 45%; /* <- Conserva tu layout 45/50 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-image img {
+    width: 100%;
+    max-width: 300px; /* <- Conserva tu tamaño de imagen */
+    height: auto;
+    opacity: 0.9;
+}
+
+/* Contenido del formulario */
+.login-content {
+    width: 50%; /* <- Conserva tu layout 45/50 */
+    display: flex;
+    flex-direction: column;
+}
+
+.login-content h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #f3d9b8; /* <- Color de signup */
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.section-subtitle {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 30px;
+    font-weight: 400;
+    text-align: center; /* <- Alineado a la izq. para login */
+}
+
+/* ============================================
+   INPUTS (Estilos de Signup)
+   ============================================ */
+
+.input-group {
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+    margin-top: 30px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 8px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.text_field {
+    width: 100%;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0 15px;
+    color: white;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* <- Importante para altura uniforme */
+}
+
+.text_field:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #f3d9b8;
+    box-shadow: 0 0 0 4px rgba(243, 217, 184, 0.1);
+}
+
+.text_field::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* ============================================
+   CONTRASEÑA (Estilos de Signup)
+   ============================================ */
+
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 50px; /* <- Espacio para el ojo */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 18px;
+    transition: color 0.3s;
+    padding: 5px;
+}
+
+.toggle-password:hover {
+    color: #f3d9b8;
+}
+
+.toggle-password i {
+    pointer-events: none;
+}
+
+/* ============================================
+   BOTONES Y TEXTO (Estilos de Signup)
+   ============================================ */
+
+.btn {
+    width: 100%;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #f3d9b8 0%, #cfA36b 100%);
+    color: #0d0e0d;
+    box-shadow: 0 4px 20px rgba(243, 217, 184, 0.3);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 10px rgb(243, 217, 184);
+}
+
+p[id="small"] {
+    font-size: 14px;
+    color: rgb(226, 226, 226);
+    text-align: left; /* <- Conserva tu alineación de login */
+    margin: 20px 0 10px;
+    font-weight: 400;
+}
+
+p[id="small"] a {
+    color: #f3d9b8;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+p[id="small"] a:hover {
+    color: #cfA36b;
+    text-decoration: underline;
+}
+
+/* ============================================
+   ACCESIBILIDAD (de Signup)
+   ============================================ */
+
+*:focus-visible {
+    outline: 2px solid #f3d9b8;
+    outline-offset: 2px;
+}
+
+/* ============================================
+   RESPONSIVE (Tus @media de Login)
+   ============================================ */
+
+/* Tus @media queries originales están bien, pero 
+   voy a adaptarlas a las nuevas clases y tamaños */
+
+@media (max-width: 992px) {
+    .section_color {
+        width: 92%;
+        padding: 30px;
+        margin-top: 0 !important; /* <- Quita el margen negativo */
+    }
+    .login-image { width: 40%; }
+    .login-content { width: 56%; }
+}
+
+@media (max-width: 768px) {
+    .section_color {
+        flex-direction: column;
+        align-items: center;
+        width: 94%;
+        padding: 24px;
+        margin-top: 20px !important;
+    }
+    .login-image {
+        width: 100%;
+        max-width: 240px;
+        margin-bottom: 20px;
+    }
+    .login-image img { max-width: 200px; }
+    .login-content { width: 100%; }
+    .login-content h1 { text-align: center; }
+    .section-subtitle { text-align: center; }
+    .text_field {
+        height: 46px;
+        font-size: 16px; /* Evita zoom en iOS */
+    }
+    .btn { padding: 14px 24px; }
+    p[id="small"] { text-align: center; }
+}
+
+@media (max-width: 480px) {
+    .section_color { padding: 20px; }
+    .login-content h1 { font-size: 26px; }
+    .btn { padding: 12px 20px; }
+}
+
+/* Prevenir zoom en inputs en iOS */
+@media screen and (max-width: 768px) {
+    select.text_field,
+    textarea.text_field,
+    input[type="text"].text_field,
+    input[type="password"].text_field,
+    input[type="email"].text_field,
+    input[type="number"].text_field {
+        font-size: 16px;
+    }
+}

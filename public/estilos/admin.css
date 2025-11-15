@@ -1,0 +1,109 @@
+/* Fuente y colores base */
+body {
+    font-family: 'Inter', sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal del dashboard */
+.dashboard-container {
+    width: 85%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Secciones de reservas y puestos */
+.dashboard-section {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Tarjetas de reservas y puestos */
+.card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    margin: 8px;
+    text-align: center;
+    min-width: 180px;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Estilos para reservas pendientes */
+.reserva-card {
+    background-color: #ffcc00;
+    color: #222;
+}
+
+/* Estilos para puestos ocupados */
+.puesto-card {
+    background-color: #ff4444;
+    color: white;
+}
+
+/* Grids más compactos */
+.reservas-grid, .puestos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Botones */
+.btn {
+    padding: 8px 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.2s ease, opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+/* Íconos en botones */
+.btn i {
+    font-size: 18px;
+    color: white;
+}
+
+/* Botón aceptar */
+.btn-aceptar {
+    background: #28a745;
+}
+
+/* Botón rechazar */
+.btn-rechazar {
+    background: #dc3545;
+}
+
+/* Botón liberar */
+.btn-liberar {
+    background: #007bff;
+}
+
+/* Contenedor de botones en tarjetas */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
