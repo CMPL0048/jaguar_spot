@@ -24,7 +24,6 @@
             <li><a href="/login"><i class="fa-solid fa-sign-in-alt"></i> {{ __('messages.login') }}</a></li>
             <li><a href="/register"><i class="fa-solid fa-user-plus"></i> {{ __('messages.register') }}</a></li>
         @endauth
-        <li>@include('components.language-selector')</li>
     </ul>
 @endsection
 

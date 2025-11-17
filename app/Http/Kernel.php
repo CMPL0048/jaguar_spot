@@ -15,6 +15,7 @@ class Kernel extends HttpKernel {
         \Illuminate\Http\Middleware\ValidateCsrfToken::class,
         \Illuminate\Http\Middleware\CheckResponseForModifications::class,
         \Illuminate\Http\Middleware\PreventRequestsDuringMaintenance::class,
+        \App\Http\Middleware\SetLanguageFromSession::class,
     ];
 
     /**
@@ -27,7 +28,6 @@ class Kernel extends HttpKernel {
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \App\Http\Middleware\SetLocale::class,
         ],
 
         'api' => [

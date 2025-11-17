@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ __('messages.app_description') }}">
     <link rel="stylesheet" href="{{ asset('estilos/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('estilos/translate-custom.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;900&display=swap" rel="stylesheet">
     <link rel="icon" href="{!! asset('imagenes/logo.png') !!}" />
@@ -24,6 +25,14 @@
                         <h1>Jaguar Spot</h1>
                     </div>
                     @yield('nav')
+                    <!-- Selector de Idioma Personalizado con Icono -->
+                    <div class="language-selector-container">
+                        <i class="fas fa-globe language-icon"></i>
+                        <select id="language-selector" class="language-selector">
+                            <option value="es">Español</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
                 </nav>
             </div>
             <svg xmlns="{{ asset('http://www.w3.org/2000/svg') }}" viewBox="0 0 1440 250">
@@ -48,6 +57,9 @@
             </svg>
         </div>
     </footer>
+    <!-- Scripts de Traducción Personalizado -->
+    <script src="{{ asset('js/translations.js') }}"></script>
+    <script src="{{ asset('js/translate-controller.js') }}"></script>
 </body>
 
 </html>

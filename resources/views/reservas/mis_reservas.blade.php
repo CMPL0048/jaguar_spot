@@ -19,7 +19,6 @@
                 </form>
             </li>
         @endauth
-        <li>@include('components.language-selector')</li>
     </ul>
 @endsection
 
@@ -38,7 +37,8 @@
 
                         <div class="puesto-info">
                             <p><i class="fa-solid fa-square-parking"></i> {{ __('messages.spot') }}:
-                                <strong>{{ $reserva->puesto->numero_puesto ?? 'N/A' }}</strong></p>
+                                <strong>{{ $reserva->puesto->numero_puesto ?? 'N/A' }}</strong>
+                            </p>
 
                             <!-- Etiqueta de tipo de puesto -->
                             <p class="puesto-tipo {{ $reserva->puesto->tipo }}">
@@ -57,7 +57,8 @@
                             @if ($reserva->estado === 'aceptado' && $reserva->hora_aprobacion)
                                 <p><i class="fa-regular fa-calendar-check"></i>
                                     <strong>{{ __('messages.approved') }}:</strong>
-                                    {{ \Carbon\Carbon::parse($reserva->hora_aprobacion)->format('d/m/Y H:i') }}</p>
+                                    {{ \Carbon\Carbon::parse($reserva->hora_aprobacion)->format('d/m/Y H:i') }}
+                                </p>
                             @endif
                         </div>
 

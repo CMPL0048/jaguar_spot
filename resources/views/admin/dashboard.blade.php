@@ -16,7 +16,6 @@
                 </form>
             </li>
         @endauth
-        <li>@include('components.language-selector')</li>
     </ul>
 @endsection
 

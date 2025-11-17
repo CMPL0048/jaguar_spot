@@ -11,7 +11,6 @@
         <li><a href="/"><i class="fas fa-home"></i> {{ __('messages.home') }}</a></li>
         <li><a href="/estacionamientos"><i class="fas fa-parking"></i> {{ __('messages.parking') }}</a></li>
         <li><a href="/ayuda"><i class="fas fa-question-circle"></i> {{ __('messages.help') }}</a></li>
-        <li>@include('components.language-selector')</li>
     </ul>
 @endsection
 
