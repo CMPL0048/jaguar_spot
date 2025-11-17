@@ -14,7 +14,8 @@
             <li>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="logout-link"><i class="fa-solid fa-sign-out-alt"></i> {{ __('messages.logout') }}</button>
+                    <button type="submit" class="logout-link"><i class="fa-solid fa-sign-out-alt"></i>
+                        {{ __('messages.logout') }}</button>
                 </form>
             </li>
         @else
@@ -29,16 +30,16 @@
 
     <!-- Navbar de Estacionamientos -->
     <nav class="navbar-estacionamientos">
-    @foreach($todosLosEstacionamientos as $e)
-        <a href="{{ route('estacionamientos.show', $e->id) }}"
-           class="nav-link {{ $e->id === $estacionamiento->id ? 'active' : '' }}">
-            {{ $e->nombre }}
-        </a>
-    @endforeach
+        @foreach ($todosLosEstacionamientos as $e)
+            <a href="{{ route('estacionamientos.show', $e->id) }}"
+                class="nav-link {{ $e->id === $estacionamiento->id ? 'active' : '' }}">
+                {{ $e->nombre }}
+            </a>
+        @endforeach
     </nav>
 
 
-    @if(session('error'))
+    @if (session('error'))
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 Swal.fire({
@@ -56,11 +57,11 @@
     <h2 class="subtitulo-estacionamiento">{{ __('messages.select_spot') }}</h2>
 
     <div class="parking-lot">
-        @foreach($estacionamiento->puestos as $puesto)
+        @foreach ($estacionamiento->puestos as $puesto)
             <form action="{{ route('puestos.reservar', $puesto->id) }}" method="POST" class="puesto-form">
                 @csrf
                 <button type="submit"
-                        class="puesto
+                    class="puesto
                         {{ $puesto->estado === 'aceptado' ? 'ocupado' : ($puesto->tipo === 'discapacitado' ? 'discapacitado' : 'disponible') }}">
 
                     <i class="{{ $puesto->tipo === 'discapacitado' ? 'fa-solid fa-wheelchair' : 'fa-solid fa-car' }}"></i>

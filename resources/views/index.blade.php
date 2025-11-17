@@ -10,7 +10,8 @@
             <li>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="logout-link"><i class="fa-solid fa-sign-out-alt"></i> {{ __('messages.logout') }}</button>
+                    <button type="submit" class="logout-link"><i class="fa-solid fa-sign-out-alt"></i>
+                        {{ __('messages.logout') }}</button>
                 </form>
             </li>
         @else
@@ -34,6 +35,6 @@
         </button>
         <br><br>
     </div>
-    
+
 
 @endsection

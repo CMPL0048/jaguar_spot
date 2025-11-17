@@ -5,11 +5,12 @@
 Este proyecto implementa un sistema de traducción multiidioma manual (sin APIs externas) que permite cambiar entre **Español (es)** e **Inglés (en)**.
 
 ### Características:
-- ✅ Traducción manual sin dependencias externas
-- ✅ Selector de idioma integrado en la interfaz
-- ✅ Persistencia de preferencia de idioma en sesión
-- ✅ Cambio dinámico del idioma sin recargar la página
-- ✅ Fácil mantenimiento y personalización
+
+-   ✅ Traducción manual sin dependencias externas
+-   ✅ Selector de idioma integrado en la interfaz
+-   ✅ Persistencia de preferencia de idioma en sesión
+-   ✅ Cambio dinámico del idioma sin recargar la página
+-   ✅ Fácil mantenimiento y personalización
 
 ---
 
@@ -60,9 +61,10 @@ APP_LOCALE=es    # o 'en'
 ### 2. **Middleware de Localización** (`app/Http/Middleware/SetLocale.php`)
 
 El middleware automáticamente:
-- Detecta parámetro de idioma en la URL (`?lang=en`)
-- Guarda la preferencia en sesión
-- Establece el locale de la aplicación
+
+-   Detecta parámetro de idioma en la URL (`?lang=en`)
+-   Guarda la preferencia en sesión
+-   Establece el locale de la aplicación
 
 Está registrado en `app/Http/Kernel.php` en el grupo web.
 
@@ -87,26 +89,29 @@ return [
 ### Claves Disponibles:
 
 **Generales:**
-- `app_name` - Nombre de la aplicación
-- `home` - Inicio
-- `parking` - Estacionamientos
-- `help` - Ayuda
-- `login` - Iniciar Sesión
-- `register` - Registrarse
-- `logout` - Cerrar Sesión
+
+-   `app_name` - Nombre de la aplicación
+-   `home` - Inicio
+-   `parking` - Estacionamientos
+-   `help` - Ayuda
+-   `login` - Iniciar Sesión
+-   `register` - Registrarse
+-   `logout` - Cerrar Sesión
 
 **Formularios:**
-- `username` - Nombre de Usuario
-- `password` - Contraseña
-- `email` - Correo Electrónico
-- `full_name` - Nombre Completo
+
+-   `username` - Nombre de Usuario
+-   `password` - Contraseña
+-   `email` - Correo Electrónico
+-   `full_name` - Nombre Completo
 
 **Estados y Mensajes:**
-- `pending` - Pendiente
-- `accepted` - Aceptado
-- `rejected` - Rechazado
-- `success` - Éxito
-- `error` - Error
+
+-   `pending` - Pendiente
+-   `accepted` - Aceptado
+-   `rejected` - Rechazado
+-   `success` - Éxito
+-   `error` - Error
 
 ---
 
@@ -201,11 +206,13 @@ Página se recarga con nuevo idioma
 ### Paso 1: Agregar Clave a Ambos Archivos
 
 **`resources/lang/es/messages.php`:**
+
 ```php
 'new_feature' => 'Nueva Característica',
 ```
 
 **`resources/lang/en/messages.php`:**
+
 ```php
 'new_feature' => 'New Feature',
 ```
@@ -213,6 +220,7 @@ Página se recarga con nuevo idioma
 ### Paso 2: Usar en la Vista
 
 **`resources/views/ejemplo.blade.php`:**
+
 ```blade
 <h1>{{ __('messages.new_feature') }}</h1>
 ```
@@ -270,31 +278,34 @@ El middleware automáticamente captura `?lang=es` y aplica la traducción.
 ### ✅ Hacer:
 
 1. **Usar claves descriptivas:**
-   ```php
-   'user_full_name' => 'Nombre Completo del Usuario'
-   ```
+
+    ```php
+    'user_full_name' => 'Nombre Completo del Usuario'
+    ```
 
 2. **Mantener la estructura consistente:**
-   ```php
-   // Por sección
-   'auth' => [
-       'login' => 'Iniciar Sesión',
-       'password' => 'Contraseña',
-   ]
-   ```
+
+    ```php
+    // Por sección
+    'auth' => [
+        'login' => 'Iniciar Sesión',
+        'password' => 'Contraseña',
+    ]
+    ```
 
 3. **Documentar nuevas claves** en este archivo
 
 ### ❌ No Hacer:
 
 1. **Traduciones hardcodeadas en vistas:**
-   ```blade
-   <!-- ❌ MAL -->
-   <h1>Hola Mundo</h1>
-   
-   <!-- ✅ BIEN -->
-   <h1>{{ __('messages.hello_world') }}</h1>
-   ```
+
+    ```blade
+    <!-- ❌ MAL -->
+    <h1>Hola Mundo</h1>
+
+    <!-- ✅ BIEN -->
+    <h1>{{ __('messages.hello_world') }}</h1>
+    ```
 
 2. **Números o textos mágicos sin traducción**
 
@@ -303,33 +314,37 @@ El middleware automáticamente captura `?lang=es` y aplica la traducción.
 ## 🚀 Próximas Mejoras Recomendadas
 
 1. **Pluralización:** Soportar singular/plural
-   ```blade
-   {{ trans_choice('messages.cars', $count) }}
-   ```
+
+    ```blade
+    {{ trans_choice('messages.cars', $count) }}
+    ```
 
 2. **Parámetros en traducciones:**
-   ```php
-   'welcome_user' => 'Bienvenido :name',
-   ```
-   ```blade
-   {{ __('messages.welcome_user', ['name' => $user->name]) }}
-   ```
+
+    ```php
+    'welcome_user' => 'Bienvenido :name',
+    ```
+
+    ```blade
+    {{ __('messages.welcome_user', ['name' => $user->name]) }}
+    ```
 
 3. **Exportar traducciones a JSON:**
-   ```json
-   {
-       "messages": {
-           "home": "Inicio",
-           "login": "Iniciar Sesión"
-       }
-   }
-   ```
+
+    ```json
+    {
+        "messages": {
+            "home": "Inicio",
+            "login": "Iniciar Sesión"
+        }
+    }
+    ```
 
 4. **URL localizadas:**
-   ```
-   /es/estacionamientos
-   /en/parking
-   ```
+    ```
+    /es/estacionamientos
+    /en/parking
+    ```
 
 ---
 

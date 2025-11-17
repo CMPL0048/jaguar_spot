@@ -11,7 +11,8 @@
             <li>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="logout-link"><i class="fa-solid fa-sign-out-alt"></i> {{ __('messages.logout') }}</button>
+                    <button type="submit" class="logout-link"><i class="fa-solid fa-sign-out-alt"></i>
+                        {{ __('messages.logout') }}</button>
                 </form>
             </li>
         @endauth
@@ -20,58 +21,58 @@
 @endsection
 
 @section('contenido')
-<div class="dashboard-container">
-    <h1 class="admin-title">{{ __('messages.admin_panel') }}</h1>
+    <div class="dashboard-container">
+        <h1 class="admin-title">{{ __('messages.admin_panel') }}</h1>
 
-    @if(session('success'))
-        <script>
-            Swal.fire({
-                icon: 'success',
-                title: '{{ __('messages.success') }}',
-                text: "{{ session('success') }}",
-                confirmButtonColor: '#28a745'
-            });
-        </script>
-    @endif
+        @if (session('success'))
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: '{{ __('messages.success') }}',
+                    text: "{{ session('success') }}",
+                    confirmButtonColor: '#28a745'
+                });
+            </script>
+        @endif
 
-    @if(session('error'))
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: '{{ __('messages.error') }}',
-                text: "{{ session('error') }}",
-                confirmButtonColor: '#d33'
-            });
-        </script>
-    @endif
+        @if (session('error'))
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: '{{ __('messages.error') }}',
+                    text: "{{ session('error') }}",
+                    confirmButtonColor: '#d33'
+                });
+            </script>
+        @endif
 
-    <div id="dashboard-content">
-        <p class="loading-text">{{ __('messages.admin_panel') }}...</p>
+        <div id="dashboard-content">
+            <p class="loading-text">{{ __('messages.admin_panel') }}...</p>
+        </div>
     </div>
-</div>
 
-<script>
-    function loadDashboardData() {
-        fetch("{{ route('admin.dashboard.data') }}")
-        .then(response => response.json())
-        .then(data => {
-            let html = `<div class="dashboard-sections">`;
+    <script>
+        function loadDashboardData() {
+            fetch("{{ route('admin.dashboard.data') }}")
+                .then(response => response.json())
+                .then(data => {
+                    let html = `<div class="dashboard-sections">`;
 
-                // 🚧 Reservas Pendientes
-                html += `<div class="dashboard-section">
+                    // 🚧 Reservas Pendientes
+                    html += `<div class="dashboard-section">
                             <h2>🚧 {{ __('messages.pending_reservas') }}</h2>`;
 
-                if (data.reservasPendientes.length === 0) {
-                    html += `<p class="no-data">{{ __('messages.no_pending') }}</p>`;
-                } else {
-                    data.reservasPendientes.forEach(estacionamiento => {
-                        html += `<div class="card estacionamiento-card">
+                    if (data.reservasPendientes.length === 0) {
+                        html += `<p class="no-data">{{ __('messages.no_pending') }}</p>`;
+                    } else {
+                        data.reservasPendientes.forEach(estacionamiento => {
+                            html += `<div class="card estacionamiento-card">
                                     <h3>${estacionamiento.nombre}</h3>
                                     <div class="reservas-grid">`;
 
-                        estacionamiento.puestos.forEach(puesto => {
-                            if (puesto.reserva) {
-                                html += `<div class="card reserva-card">
+                            estacionamiento.puestos.forEach(puesto => {
+                                if (puesto.reserva) {
+                                    html += `<div class="card reserva-card">
                                             <p>{{ __('messages.spot') }}: <strong>${puesto.numero_puesto}</strong></p>
                                             <p>{{ __('messages.user') }}: <strong>${puesto.reserva.usuario?.nombre_completo || 'N/A'}</strong></p>
 
@@ -87,48 +88,48 @@
                                                 </form>
                                             </div>
                                         </div>`;
-                            }
+                                }
+                            });
+
+                            html += `</div></div>`;
                         });
+                    }
 
-                        html += `</div></div>`;
-                    });
-                }
-
-            // ✅ Puestos Ocupados
-            html += `<div class="dashboard-section">
+                    // ✅ Puestos Ocupados
+                    html += `<div class="dashboard-section">
                         <h2>✅ {{ __('messages.occupied_spots') }}</h2>`;
 
-            if (data.puestosOcupados.length === 0) {
-                html += `<p class="no-data">{{ __('messages.no_occupied') }}</p>`;
-            } else {
-                data.puestosOcupados.forEach(estacionamiento => {
-                    html += `<div class="card estacionamiento-card">
+                    if (data.puestosOcupados.length === 0) {
+                        html += `<p class="no-data">{{ __('messages.no_occupied') }}</p>`;
+                    } else {
+                        data.puestosOcupados.forEach(estacionamiento => {
+                            html += `<div class="card estacionamiento-card">
                                 <h3>${estacionamiento.nombre}</h3>
                                 <div class="puestos-grid">`;
 
-                    estacionamiento.puestos.forEach(puesto => {
-                        html += `<div class="card puesto-card occupied">
+                            estacionamiento.puestos.forEach(puesto => {
+                                html += `<div class="card puesto-card occupied">
                                     <p>{{ __('messages.spot') }}: <strong>${puesto.numero_puesto}</strong></p>
                                     <form action="/admin/puestos/${puesto.id}/liberar" method="POST">
                                         @csrf
                                         <button class="btn btn-liberar"><i class="fa-solid fa-unlock"></i></button>
                                     </form>
                                 </div>`;
-                    });
+                            });
 
-                    html += `</div></div>`;
-                });
-            }
+                            html += `</div></div>`;
+                        });
+                    }
 
-            html += `</div>`; // Fin de dashboard-sections
+                    html += `</div>`; // Fin de dashboard-sections
 
-            document.getElementById("dashboard-content").innerHTML = html;
-        })
-        .catch(error => console.error("Error al cargar datos:", error));
-    }
+                    document.getElementById("dashboard-content").innerHTML = html;
+                })
+                .catch(error => console.error("Error al cargar datos:", error));
+        }
 
-    setInterval(loadDashboardData, 5000);
-    document.addEventListener("DOMContentLoaded", loadDashboardData);
-</script>
+        setInterval(loadDashboardData, 5000);
+        document.addEventListener("DOMContentLoaded", loadDashboardData);
+    </script>
 
 @endsection

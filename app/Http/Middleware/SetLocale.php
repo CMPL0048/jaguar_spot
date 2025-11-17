@@ -21,7 +21,7 @@ class SetLocale
         // Verificar si el usuario pasó un parámetro de idioma en la URL
         if ($request->has('lang')) {
             $lang = $request->query('lang');
-            
+
             // Validar que el idioma sea soportado
             if (in_array($lang, ['es', 'en'])) {
                 Session::put('locale', $lang);

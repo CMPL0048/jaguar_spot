@@ -20,46 +20,34 @@
         <div class="login-image">
             <img src="{{ asset('imagenes/iconos/undraw_website_zbig.svg') }}" alt="{{ __('messages.login_title') }}">
         </div>
-        
+
         <div class="login-content">
             <h1>{{ __('messages.login_title') }}</h1>
             <p class="section-subtitle">{{ __('messages.login_subtitle') }}</p>
 
             <form action="{{ route('login.post') }}" method="POST" class="formulario" novalidate>
                 @csrf <div class="input-group">
-                    <label for="usuario">{{ __('messages.username') }}</label> 
-                    <div class="input-wrapper"> <input 
-                            type="text" 
-                            name="usuario" 
-                            id="usuario" 
-                            class="text_field" 
-                            placeholder="{{ __('messages.enter_username') }}" 
-                            required
-                            autocomplete="username"
-                        >
+                    <label for="usuario">{{ __('messages.username') }}</label>
+                    <div class="input-wrapper"> <input type="text" name="usuario" id="usuario" class="text_field"
+                            placeholder="{{ __('messages.enter_username') }}" required autocomplete="username">
                     </div>
                 </div>
 
                 <div class="input-group">
                     <label for="password">{{ __('messages.password') }}</label>
                     <div class="password-container">
-                        <input 
-                            type="password" 
-                            name="password" 
-                            class="text_field" 
-                            id="password" 
-                            placeholder="{{ __('messages.enter_password') }}" 
-                            required
-                            autocomplete="current-password"
-                        >
-                        <button type="button" class="toggle-password" onclick="togglePassword('password', 'eye-icon')" aria-label="{{ __('messages.password') }}">
+                        <input type="password" name="password" class="text_field" id="password"
+                            placeholder="{{ __('messages.enter_password') }}" required autocomplete="current-password">
+                        <button type="button" class="toggle-password" onclick="togglePassword('password', 'eye-icon')"
+                            aria-label="{{ __('messages.password') }}">
                             <i class="fa-solid fa-eye" id="eye-icon"></i>
                         </button>
                     </div>
                 </div>
 
-                <p id="small" style="text-align: center;">{{ __('messages.no_account') }} <a href="/register">{{ __('messages.register_here') }}</a></p>
-                
+                <p id="small" style="text-align: center;">{{ __('messages.no_account') }} <a
+                        href="/register">{{ __('messages.register_here') }}</a></p>
+
                 <button type="submit" class="btn btn-primary">
                     <i class="fas fa-sign-in-alt"></i> {{ __('messages.enter') }}
                 </button>
@@ -71,7 +59,7 @@
         function togglePassword(inputId, iconId) {
             const passwordField = document.getElementById(inputId);
             const eyeIcon = document.getElementById(iconId);
-            
+
             if (passwordField.type === 'password') {
                 passwordField.type = 'text';
                 eyeIcon.classList.remove('fa-eye');
