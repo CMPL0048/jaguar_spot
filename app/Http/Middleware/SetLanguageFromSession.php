@@ -15,12 +15,18 @@ class SetLanguageFromSession
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Obtener idioma de sesión o cookie
+        // Obtener idioma de: sesión -> cookie -> config default
+        // (localStorage será guardado en cookie por el controlador)
         $language = session('app_language')
                  ?? request()->cookie('app_language')
                  ?? config('app.locale', 'es');
 
-        // Establecer el locale de la app
+        // Validar que sea un idioma soportado
+        if (!in_array($language, ['es', 'en'])) {
+            $language = 'es';
+        }
+
+        // Establecer el locale de la aplicación
         app()->setLocale($language);
 
         // Pasar al siguiente middleware/controller

@@ -1,11 +1,12 @@
 /**
- * Controlador de traducción simplificado
- * Usa sesión de Laravel y cambio de locale en el servidor
- * (Sin dependencia de Google Translate API cliente)
+ * Controlador de traducción con persistencia en localStorage
+ * - Guarda idioma en localStorage para persistencia entre páginas
+ * - Sincroniza con el servidor para mantener sesión
+ * - Aplica traducciones instantáneamente sin recarga
  */
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('✓ DOM Cargado - inicializando selector de idioma');
+    console.log('✓ DOM Cargado - inicializando sistema de traducción');
 
     const languageSelector = document.getElementById('language-selector');
 
@@ -14,23 +15,46 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
-    // Establecer idioma actual
-    const currentLang = document.documentElement.lang || 'es';
-    languageSelector.value = currentLang;
-    console.log('✓ Idioma actual:', currentLang);
+    // 1. OBTENER IDIOMA GUARDADO O POR DEFECTO
+    let currentLang = localStorage.getItem('app_language') || document.documentElement.lang || 'es';
+    
+    // Validar idioma
+    if (!['es', 'en'].includes(currentLang)) {
+        currentLang = 'es';
+    }
 
-    // Evento change del selector
+    // 2. APLICAR IDIOMA GUARDADO AL CARGAR LA PÁGINA
+    console.log('✓ Idioma guardado en localStorage:', currentLang);
+    languageSelector.value = currentLang;
+    
+    // Aplicar traducciones inmediatamente si no está en español
+    if (currentLang !== 'es' && typeof translatePageContent === 'function') {
+        console.log('► Aplicando traducciones del localStorage al cargar...');
+        translatePageContent(currentLang);
+    }
+
+    // Actualizar HTML lang attribute
+    document.documentElement.lang = currentLang;
+
+    // 3. EVENTO CHANGE DEL SELECTOR
     languageSelector.addEventListener('change', function (e) {
         const selectedLanguage = e.target.value;
-        console.log('► Cambiando a idioma:', selectedLanguage);
+        console.log('► Usuario seleccionó idioma:', selectedLanguage);
 
-        // Traducir el contenido de forma local primero
+        // Guardar en localStorage PRIMERO
+        localStorage.setItem('app_language', selectedLanguage);
+        console.log('✓ Idioma guardado en localStorage:', selectedLanguage);
+
+        // Actualizar HTML lang attribute
+        document.documentElement.lang = selectedLanguage;
+
+        // Traducir el contenido de forma local
         if (typeof translatePageContent === 'function') {
             console.log('► Aplicando traducciones locales...');
             translatePageContent(selectedLanguage);
         }
 
-        // Llamar a la ruta para cambiar el idioma en sesión
+        // Sincronizar con el servidor (para mantener sesión)
         const url = `/set-language/${selectedLanguage}`;
 
         fetch(url, {
@@ -44,16 +68,18 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 console.log('✓ Respuesta del servidor:', data);
                 if (data.success) {
-                    console.log('✓ Idioma cambiado exitosamente a:', data.language);
-                    console.log('► Las próximas páginas se cargarán en', data.language);
+                    console.log('✓ Idioma sincronizado en sesión:', data.language);
+                    console.log('✓ Idioma persistente entre páginas');
                 } else {
-                    console.error('✗ Error al cambiar idioma:', data);
+                    console.error('✗ Error al sincronizar idioma:', data);
                 }
             })
             .catch(error => {
                 console.error('✗ Error en fetch:', error);
+                console.warn('⚠ Pero el idioma está guardado localmente en:', selectedLanguage);
             });
     });
-});
 
+    console.log('✓ Sistema de traducción inicializado correctamente');
+});
 

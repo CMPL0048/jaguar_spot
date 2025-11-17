@@ -8,7 +8,7 @@ class LanguageController extends Controller
 {
     /**
      * Cambiar el idioma de la aplicación
-     * Guarda la preferencia en la sesión
+     * Guarda en: sesión, cookie (para persistencia entre navegadores/tabs)
      */
     public function setLanguage(Request $request, $language)
     {
@@ -19,22 +19,23 @@ class LanguageController extends Controller
             $language = 'es'; // Default
         }
 
-        // Guardar en sesión
+        // Guardar en sesión para la solicitud actual
         session(['app_language' => $language]);
-
-        // Guardar en cookie también (persiste más tiempo)
-        cookie()->queue(cookie('app_language', $language, 60 * 24 * 365)); // 1 año
+        
+        // Guardar en cookie para persistencia de larga duración (1 año)
+        // Esto sincroniza con localStorage del navegador
+        cookie()->queue(cookie('app_language', $language, 60 * 24 * 365));
 
         // Si es una llamada AJAX, retornar JSON
         if ($request->ajax() || $request->wantsJson()) {
             return response()->json([
                 'success' => true,
                 'language' => $language,
-                'message' => 'Idioma cambiado correctamente'
+                'message' => 'Idioma guardado correctamente en sesión y localStorage'
             ]);
         }
 
-        // Si no, redirigir a la referencia o página anterior
+        // Si no es AJAX, redirigir manteniendo el idioma
         return redirect()->back();
     }
 
