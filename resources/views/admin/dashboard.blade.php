@@ -1,5 +1,5 @@
 @extends('plantilla')
-@section('titulo', 'Panel de Administración · Jaguar Spot')
+@section('titulo', __('messages.admin_panel') . ' · Jaguar Spot')
 @section('head')
     <link rel="stylesheet" href="{{ asset('estilos/admin.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -11,22 +11,23 @@
             <li>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="logout-link"><i class="fa-solid fa-sign-out-alt"></i> Cerrar Sesión</button>
+                    <button type="submit" class="logout-link"><i class="fa-solid fa-sign-out-alt"></i> {{ __('messages.logout') }}</button>
                 </form>
             </li>
         @endauth
+        <li>@include('components.language-selector')</li>
     </ul>
 @endsection
 
 @section('contenido')
 <div class="dashboard-container">
-    <h1 class="admin-title">Panel de Administración</h1>
+    <h1 class="admin-title">{{ __('messages.admin_panel') }}</h1>
 
     @if(session('success'))
         <script>
             Swal.fire({
                 icon: 'success',
-                title: 'Éxito',
+                title: '{{ __('messages.success') }}',
                 text: "{{ session('success') }}",
                 confirmButtonColor: '#28a745'
             });
@@ -37,7 +38,7 @@
         <script>
             Swal.fire({
                 icon: 'error',
-                title: 'Error',
+                title: '{{ __('messages.error') }}',
                 text: "{{ session('error') }}",
                 confirmButtonColor: '#d33'
             });
@@ -45,7 +46,7 @@
     @endif
 
     <div id="dashboard-content">
-        <p class="loading-text">Cargando datos...</p> 
+        <p class="loading-text">{{ __('messages.admin_panel') }}...</p>
     </div>
 </div>
 
@@ -58,10 +59,10 @@
 
                 // 🚧 Reservas Pendientes
                 html += `<div class="dashboard-section">
-                            <h2>🚧 Reservas Pendientes</h2>`;
+                            <h2>🚧 {{ __('messages.pending_reservas') }}</h2>`;
 
                 if (data.reservasPendientes.length === 0) {
-                    html += `<p class="no-data">No hay reservas pendientes en este momento.</p>`;
+                    html += `<p class="no-data">{{ __('messages.no_pending') }}</p>`;
                 } else {
                     data.reservasPendientes.forEach(estacionamiento => {
                         html += `<div class="card estacionamiento-card">
@@ -71,8 +72,8 @@
                         estacionamiento.puestos.forEach(puesto => {
                             if (puesto.reserva) {
                                 html += `<div class="card reserva-card">
-                                            <p>Puesto: <strong>${puesto.numero_puesto}</strong></p>
-                                            <p>Usuario: <strong>${puesto.reserva.usuario?.nombre_completo || 'N/A'}</strong></p>
+                                            <p>{{ __('messages.spot') }}: <strong>${puesto.numero_puesto}</strong></p>
+                                            <p>{{ __('messages.user') }}: <strong>${puesto.reserva.usuario?.nombre_completo || 'N/A'}</strong></p>
 
                                             <div class="action-buttons">
                                                 <form action="/admin/reservas/${puesto.reserva.id}/aprobar" method="POST">
@@ -95,10 +96,10 @@
 
             // ✅ Puestos Ocupados
             html += `<div class="dashboard-section">
-                        <h2>✅ Puestos Ocupados</h2>`;
+                        <h2>✅ {{ __('messages.occupied_spots') }}</h2>`;
 
             if (data.puestosOcupados.length === 0) {
-                html += `<p class="no-data">No hay puestos ocupados en este momento.</p>`;
+                html += `<p class="no-data">{{ __('messages.no_occupied') }}</p>`;
             } else {
                 data.puestosOcupados.forEach(estacionamiento => {
                     html += `<div class="card estacionamiento-card">
@@ -107,7 +108,7 @@
 
                     estacionamiento.puestos.forEach(puesto => {
                         html += `<div class="card puesto-card occupied">
-                                    <p>Puesto: <strong>${puesto.numero_puesto}</strong></p>
+                                    <p>{{ __('messages.spot') }}: <strong>${puesto.numero_puesto}</strong></p>
                                     <form action="/admin/puestos/${puesto.id}/liberar" method="POST">
                                         @csrf
                                         <button class="btn btn-liberar"><i class="fa-solid fa-unlock"></i></button>

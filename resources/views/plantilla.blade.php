@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Reserva y gestiona tu lugar de estacionamiento en la Universidad Tecnológica de Nayarit con Jaguar Spot. Rápido, fácil y para toda la comunidad universitaria.">
+    <meta name="description" content="{{ __('messages.app_description') }}">
     <link rel="stylesheet" href="{{asset('estilos/style.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;900&display=swap" rel="stylesheet">
     <link rel="icon" href="{!! asset('imagenes/logo.png') !!}"/>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>@yield('titulo', 'Estacionamiento Jaguar')</title>
+    <title>@yield('titulo', __('messages.app_name'))</title>
     @yield('head')
 </head>
 <body>
