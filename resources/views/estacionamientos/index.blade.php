@@ -125,9 +125,9 @@
             // (ya están escaladas por imageMapResizer)
             function dibujar(coords) {
                 ctx.clearRect(0, 0, overlay.width, overlay.height);
-                ctx.fillStyle = 'rgba(0, 150, 255, 0.4)';
-                ctx.strokeStyle = '#0099ff';
-                ctx.lineWidth = 2;
+                ctx.fillStyle = 'rgba(76, 175, 80, 0.4)'; // Verde con transparencia
+                ctx.strokeStyle = '#4CAF50'; // Verde brillante
+                ctx.lineWidth = 3; // Borde más grueso para mejor visibilidad
 
                 const puntos = coords.split(',').map(Number);
                 ctx.beginPath();
