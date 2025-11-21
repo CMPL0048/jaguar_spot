@@ -260,7 +260,7 @@ const translations = {
         'Datos de Vehículos': 'Vehicle Data',
         'Agrega los vehículos que utilizarás': 'Add the vehicles you will use',
         'Marca del Vehículo': 'Vehicle Brand',
-        'Matrícula': 'License Plate',
+        'Matrícula': 'Driver´s license',
         'Anterior': 'Previous',
         'Información de Vehículos': 'Vehicle Information',
         'Registra los vehículos que usarás en el estacionamiento': 'Register the vehicles you will use in the parking lot',
@@ -370,7 +370,7 @@ const translations = {
         'Inicia sesión aquí': 'Log in here',
         'Clave de Trabajador': 'Worker ID',
         'Ingrese su clave de trabajador': 'Enter your worker ID',
-        'Ingrese su matrícula': 'Enter your enrollment ID',
+        'Ingrese su matrícula': 'Enter your license plate',
         'CURP': 'CURP',
         'Ingrese su CURP': 'Enter your CURP',
     }
