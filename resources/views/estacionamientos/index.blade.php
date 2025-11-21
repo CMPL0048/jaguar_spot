@@ -1,5 +1,5 @@
 @extends('plantilla')
-@section('titulo', __('messages.available_parking') . ' · Jaguar Spot')
+@section('titulo', 'Estacionamientos Disponibles · Jaguar Spot')
 
 @section('head')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -10,31 +10,31 @@
 
 @section('nav')
     <ul>
-        <li><a href="/"><i class="fas fa-home"></i> {{ __('messages.home') }}</a></li>
+        <li><a href="/"><i class="fas fa-home"></i> <span data-i18n="Inicio">Inicio</span></a></li>
         @auth
-            <li><a href="{{ route('mis_reservas') }}">{{ __('messages.my_reservas_icon') }}</a></li>
+            <li><a href="{{ route('mis_reservas') }}"><span data-i18n="Puestos Reservados">Puestos Reservados</span></a></li>
             <li>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button type="submit" class="logout-link"><i class="fa-solid fa-sign-out-alt"></i>
-                        {{ __('messages.logout') }}</button>
+                        <span data-i18n="Cerrar Sesión">Cerrar Sesión</span></button>
                 </form>
             </li>
         @else
-            <li><a href="/login"><i class="fa-solid fa-sign-in-alt"></i> {{ __('messages.login') }}</a></li>
-            <li><a href="/register"><i class="fa-solid fa-user-plus"></i> {{ __('messages.register') }}</a></li>
+            <li><a href="/login"><i class="fa-solid fa-sign-in-alt"></i> <span data-i18n="Iniciar Sesión">Iniciar Sesión</span></a></li>
+            <li><a href="/register"><i class="fa-solid fa-user-plus"></i> <span data-i18n="Registrarse">Registrarse</span></a></li>
         @endauth
     </ul>
 @endsection
 
 @section('contenido')
     <div class="container">
-        <h1 class="title">🚗 {{ __('messages.available_parking') }}</h1>
+        <h1 class="title">🚗 <span data-i18n="🚗 Estacionamientos Disponibles">🚗 Estacionamientos Disponibles</span></h1>
 
         <div class="map-container">
             <div id="mapa-container">
                 <img src="{{ asset('imagenes/mapa-utn.png') }}" usemap="#utn-map" id="mapa"
-                    alt="{{ __('messages.parking_name') }}">
+                    alt="Mapa de la UTN" data-i18n-alt="El estacionamiento de la UT Nayarit">
 
                 <!-- Canvas para el efecto hover -->
                 <canvas id="overlay"></canvas>
@@ -44,36 +44,40 @@
 
                 <map name="utn-map">
                     <area alt="Estacionamiento Turismo" title="Estacionamiento Turismo"
+                        data-i18n-alt="Estacionamiento Turismo" data-i18n-title="Estacionamiento Turismo"
                         href="{{ route('estacionamientos.show', 1) }}" coords="121,602,147,536,306,555,300,623"
                         shape="poly">
 
                     <area alt="Estacionamiento Gimnasio" title="Estacionamiento Gimnasio"
+                        data-i18n-alt="Estacionamiento Gimnasio" data-i18n-title="Estacionamiento Gimnasio"
                         href="{{ route('estacionamientos.show', 2) }}" coords="634,472,622,570,745,587,758,484"
                         shape="poly">
 
                     <area alt="Estacionamiento Rectoría" title="Estacionamiento Rectoría"
+                        data-i18n-alt="Estacionamiento Rectoría" data-i18n-title="Estacionamiento Rectoría"
                         href="{{ route('estacionamientos.show', 3) }}"
                         coords="419,32,415,61,399,79,397,99,396,126,492,142,558,150,568,57,499,51,458,48,445,38,439,33"
                         shape="poly">
 
                     <area alt="Estacionamiento Vinculación" title="Estacionamiento Vinculación"
+                        data-i18n-alt="Estacionamiento Vinculación" data-i18n-title="Estacionamiento Vinculación"
                         href="{{ route('estacionamientos.show', 4) }}" coords="163,211,226,221,213,337,150,331"
                         shape="poly">
                 </map>
             </div>
         </div>
 
-        <h2 class="subtitle">{{ __('messages.select_parking') }}</h2>
+        <h2 class="subtitle" data-i18n="Selecciona un Estacionamiento">Selecciona un Estacionamiento</h2>
 
         <div class="parking-grid">
-            @foreach ($estacionamientos as $estacionamiento)
+            @foreach ($estacionamientos->unique('nombre') as $estacionamiento)
                 <a href="{{ route('estacionamientos.show', $estacionamiento->id) }}" class="parking-card">
                     <div class="icon">
                         <i class="fa-solid fa-square-parking"></i>
                     </div>
-                    <h3>{{ $estacionamiento->nombre }}</h3>
-                    <p><i class="fa-solid fa-car-side"></i> {{ __('messages.capacity') }}:
-                        {{ $estacionamiento->capacidad }} {{ __('messages.spaces') }}</p>
+                    <h3 data-i18n="{{ $estacionamiento->nombre }}">{{ $estacionamiento->nombre }}</h3>
+                    <p><i class="fa-solid fa-car-side"></i> <span data-i18n="Capacidad:">Capacidad:</span>
+                        {{ $estacionamiento->capacidad }} <span data-i18n="espacios">espacios</span></p>
                 </a>
             @endforeach
         </div>

@@ -1,5 +1,5 @@
 @extends('plantilla')
-@section('titulo', __('messages.login_title') . ' · Jaguar Spot')
+@section('titulo', 'Iniciar Sesión · Jaguar Spot')
 @section('head')
     <link rel="stylesheet" href="estilos/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -8,47 +8,47 @@
 
 @section('nav')
     <ul>
-        <li><a href="/"><i class="fas fa-home"></i> {{ __('messages.home') }}</a></li>
-        <li><a href="/estacionamientos"><i class="fas fa-parking"></i> {{ __('messages.parking') }}</a></li>
-        <li><a href="/ayuda"><i class="fas fa-question-circle"></i> {{ __('messages.help') }}</a></li>
+        <li><a href="/"><i class="fas fa-home"></i> <span data-i18n="Inicio">Inicio</span></a></li>
+        <li><a href="/estacionamientos"><i class="fas fa-parking"></i> <span data-i18n="Estacionamientos">Estacionamientos</span></a></li>
+        <li><a href="/ayuda"><i class="fas fa-question-circle"></i> <span data-i18n="Ayuda">Ayuda</span></a></li>
     </ul>
 @endsection
 
 @section('contenido')
     <div class="section_color">
         <div class="login-image">
-            <img src="{{ asset('imagenes/iconos/undraw_website_zbig.svg') }}" alt="{{ __('messages.login_title') }}">
+            <img src="{{ asset('imagenes/iconos/undraw_website_zbig.svg') }}" alt="Iniciar Sesión" data-i18n-alt="Iniciar Sesión">
         </div>
 
         <div class="login-content">
-            <h1>{{ __('messages.login_title') }}</h1>
-            <p class="section-subtitle">{{ __('messages.login_subtitle') }}</p>
+            <h1 data-i18n="Iniciar Sesión">Iniciar Sesión</h1>
+            <p class="section-subtitle" data-i18n="Ingresa tus credenciales para acceder">Ingresa tus credenciales para acceder</p>
 
             <form action="{{ route('login.post') }}" method="POST" class="formulario" novalidate>
                 @csrf <div class="input-group">
-                    <label for="usuario">{{ __('messages.username') }}</label>
+                    <label for="usuario" data-i18n="Nombre de Usuario">Nombre de Usuario</label>
                     <div class="input-wrapper"> <input type="text" name="usuario" id="usuario" class="text_field"
-                            placeholder="{{ __('messages.enter_username') }}" required autocomplete="username">
+                            placeholder="Ingrese su usuario" data-i18n="Ingrese su usuario" required autocomplete="username">
                     </div>
                 </div>
 
                 <div class="input-group">
-                    <label for="password">{{ __('messages.password') }}</label>
+                    <label for="password" data-i18n="Contraseña">Contraseña</label>
                     <div class="password-container">
                         <input type="password" name="password" class="text_field" id="password"
-                            placeholder="{{ __('messages.enter_password') }}" required autocomplete="current-password">
+                            placeholder="Ingrese su contraseña" data-i18n="Ingrese su contraseña" required autocomplete="current-password">
                         <button type="button" class="toggle-password" onclick="togglePassword('password', 'eye-icon')"
-                            aria-label="{{ __('messages.password') }}">
+                            aria-label="Contraseña" data-i18n-aria-label="Contraseña">
                             <i class="fa-solid fa-eye" id="eye-icon"></i>
                         </button>
                     </div>
                 </div>
 
-                <p id="small" style="text-align: center;">{{ __('messages.no_account') }} <a
-                        href="/register">{{ __('messages.register_here') }}</a></p>
+                <p id="small" style="text-align: center;"><span data-i18n="¿Aún no tienes cuenta?">¿Aún no tienes cuenta?</span> <a
+                        href="/register" data-i18n="Regístrate aquí">Regístrate aquí</a></p>
 
                 <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-sign-in-alt"></i> {{ __('messages.enter') }}
+                    <i class="fas fa-sign-in-alt"></i> <span data-i18n="Ingresar">Ingresar</span>
                 </button>
             </form>
         </div>

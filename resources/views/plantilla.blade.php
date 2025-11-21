@@ -4,14 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ __('messages.app_description') }}">
+    <meta name="description" content="Jaguar Spot te permitirá tener el control de tu estacionamiento dentro de la universidad">
     <link rel="stylesheet" href="{{ asset('estilos/style.css') }}">
     <link rel="stylesheet" href="{{ asset('estilos/translate-custom.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;900&display=swap" rel="stylesheet">
     <link rel="icon" href="{!! asset('imagenes/logo.png') !!}" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>@yield('titulo', __('messages.app_name'))</title>
+    <!-- Cargar traducciones antes que el contenido para que estén disponibles en scripts de vistas -->
+    <script src="{{ asset('js/translations.js') }}"></script>
+    <title>@yield('titulo', 'Jaguar Spot')</title>
     @yield('head')
 </head>
 
@@ -58,7 +60,6 @@
         </div>
     </footer>
     <!-- Scripts de Traducción Personalizado -->
-    <script src="{{ asset('js/translations.js') }}"></script>
     <script src="{{ asset('js/translate-controller.js') }}"></script>
 </body>
 

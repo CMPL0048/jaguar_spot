@@ -1,5 +1,5 @@
 @extends('plantilla')
-@section('titulo', __('messages.register_title') . ' · Jaguar Spot')
+@section('titulo', 'Registro · Jaguar Spot')
 @section('head')
     <link rel="stylesheet" href="{{ asset('estilos/signup.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -8,9 +8,9 @@
 
 @section('nav')
     <ul>
-        <li><a href="/"><i class="fas fa-home"></i> {{ __('messages.home') }}</a></li>
-        <li><a href="/estacionamientos"><i class="fas fa-parking"></i> {{ __('messages.parking') }}</a></li>
-        <li><a href="/ayuda"><i class="fas fa-question-circle"></i> {{ __('messages.help') }}</a></li>
+        <li><a href="/"><i class="fas fa-home"></i> <span data-i18n="Inicio">Inicio</span></a></li>
+        <li><a href="/estacionamientos"><i class="fas fa-parking"></i> <span data-i18n="Estacionamientos">Estacionamientos</span></a></li>
+        <li><a href="/ayuda"><i class="fas fa-question-circle"></i> <span data-i18n="Ayuda">Ayuda</span></a></li>
     </ul>
 @endsection
 
@@ -19,33 +19,33 @@
     {{-- Indicador de Progreso --}}
     <div class="progress-container">
         <div class="progress-bar-wrapper" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"
-            aria-label="{{ __('messages.register_title') }}">
+            aria-label="Registro">
             <div class="progress-bar-fill" id="progressBar"></div>
         </div>
 
         <div class="steps-indicator">
             <div class="step-item active" data-step="1">
-                <div class="step-circle" aria-label="{{ __('messages.step') }} 1">1</div>
-                <div class="step-label">{{ __('messages.personal_data') }}</div>
+                <div class="step-circle" aria-label="Paso 1">1</div>
+                <div class="step-label" data-i18n="Información Personal">Información Personal</div>
             </div>
             <div class="step-item" data-step="2">
-                <div class="step-circle" aria-label="{{ __('messages.step') }} 2">2</div>
-                <div class="step-label">{{ __('messages.access_credentials') }}</div>
+                <div class="step-circle" aria-label="Paso 2">2</div>
+                <div class="step-label" data-i18n="Credenciales de Acceso">Credenciales de Acceso</div>
             </div>
             <div class="step-item" data-step="3">
-                <div class="step-circle" aria-label="{{ __('messages.step') }} 3">3</div>
-                <div class="step-label">{{ __('messages.vehicles') }}</div>
+                <div class="step-circle" aria-label="Paso 3">3</div>
+                <div class="step-label" data-i18n="Datos de Vehículos">Datos de Vehículos</div>
             </div>
         </div>
     </div>
 
     <div class="section_color">
         <div class="login-image">
-            <img src="{{ asset('imagenes/iconos/undraw_in-the-office_e7pg.svg') }}" alt="{{ __('messages.step1_title') }}"
+            <img src="{{ asset('imagenes/iconos/undraw_in-the-office_e7pg.svg') }}" alt="Información Personal" data-i18n-alt="Información Personal"
                 id="img-step-1" class="step-image active">
-            <img src="{{ asset('imagenes/iconos/undraw_secure-login_m11a.svg') }}" alt="{{ __('messages.step2_title') }}"
+            <img src="{{ asset('imagenes/iconos/undraw_secure-login_m11a.svg') }}" alt="Credenciales de Acceso" data-i18n-alt="Credenciales de Acceso"
                 id="img-step-2" class="step-image">
-            <img src="{{ asset('imagenes/iconos/undraw_vintage_q09n.svg') }}" alt="{{ __('messages.vehicles') }}"
+            <img src="{{ asset('imagenes/iconos/undraw_vintage_q09n.svg') }}" alt="Datos de Vehículos" data-i18n-alt="Datos de Vehículos"
                 id="img-step-3" class="step-image">
         </div>
 
@@ -55,54 +55,54 @@
 
                 {{-- PASO 1: DATOS PERSONALES --}}
                 <div class="form-step active" data-step="1">
-                    <h1>{{ __('messages.step1_title') }}</h1>
-                    <p class="section-subtitle">{{ __('messages.step1_subtitle') }}</p>
+                    <h1 data-i18n="Información Personal">Información Personal</h1>
+                    <p class="section-subtitle" data-i18n="Comencemos con tus datos básicos">Comencemos con tus datos básicos</p>
 
                     <div class="input-group">
-                        <label for="nombre_completo">{{ __('messages.full_name') }}<span class="required">*</span></label>
+                        <label for="nombre_completo"><span data-i18n="Nombre Completo">Nombre Completo</span><span class="required">*</span></label>
                         <div class="input-wrapper">
                             <input type="text" name="nombre_completo" id="nombre_completo" class="text_field"
-                                placeholder="{{ __('messages.enter_full_name') }}" required autocomplete="name"
+                                placeholder="Ej: Juan Pérez García" data-i18n="Ej: Juan Pérez García" required autocomplete="name"
                                 aria-describedby="nombre_completo-error" value="{{ old('nombre_completo') }}">
                             <i class="fas fa-check validation-icon success"></i>
                             <i class="fas fa-times validation-icon error"></i>
                         </div>
                         <span class="error-message"
-                            id="nombre_completo-error">{{ __('messages.full_name_required') }}</span>
+                            id="nombre_completo-error" data-i18n="Por favor ingresa tu nombre completo">Por favor ingresa tu nombre completo</span>
                     </div>
 
                     <div class="input-group">
-                        <label for="usuario">{{ __('messages.username') }}<span class="required">*</span></label>
+                        <label for="usuario"><span data-i18n="Nombre de Usuario">Nombre de Usuario</span><span class="required">*</span></label>
                         <div class="input-wrapper">
                             <input type="text" name="usuario" id="usuario" class="text_field"
-                                placeholder="{{ __('messages.enter_username') }}" required autocomplete="username"
+                                placeholder="Ej: juanperez123" data-i18n="Ej: juanperez123" required autocomplete="username"
                                 aria-describedby="usuario-error usuario-help" value="{{ old('usuario') }}">
                             <i class="fas fa-check validation-icon success"></i>
                             <i class="fas fa-times validation-icon error"></i>
                         </div>
-                        <span class="help-text" id="usuario-help">{{ __('messages.min_4_chars') }}</span>
-                        <span class="error-message" id="usuario-error">{{ __('messages.user_required') }}</span>
+                        <span class="help-text" id="usuario-help" data-i18n="Mínimo 4 caracteres, sin espacios">Mínimo 4 caracteres, sin espacios</span>
+                        <span class="error-message" id="usuario-error" data-i18n="El usuario debe tener al menos 4 caracteres">El usuario debe tener al menos 4 caracteres</span>
                     </div>
 
                     <div class="input-group">
-                        <label for="tipo_usuario">{{ __('messages.user_type') }}<span class="required">*</span></label>
+                        <label for="tipo_usuario"><span data-i18n="Tipo de Usuario">Tipo de Usuario</span><span class="required">*</span></label>
                         <select name="tipo_usuario" id="tipo_usuario" class="text_field" required
                             aria-describedby="tipo_usuario-help">
-                            <option value="">{{ __('messages.select_option') }}</option>
-                            <option value="Alumno" {{ old('tipo_usuario') == 'Alumno' ? 'selected' : '' }}>
-                                {{ __('messages.student') }}</option>
-                            <option value="Docente" {{ old('tipo_usuario') == 'Docente' ? 'selected' : '' }}>
-                                {{ __('messages.teacher') }}</option>
-                            <option value="Discapacitado" {{ old('tipo_usuario') == 'Discapacitado' ? 'selected' : '' }}>
-                                {{ __('messages.disabled') }}</option>
-                            <option value="Invitado" {{ old('tipo_usuario') == 'Invitado' ? 'selected' : '' }}>
-                                {{ __('messages.guest') }}</option>
+                            <option value="" data-i18n="Seleccione una opción">Seleccione una opción</option>
+                            <option value="Alumno" {{ old('tipo_usuario') == 'Alumno' ? 'selected' : '' }} data-i18n="Alumno">
+                                Alumno</option>
+                            <option value="Docente" {{ old('tipo_usuario') == 'Docente' ? 'selected' : '' }} data-i18n="Docente">
+                                Docente</option>
+                            <option value="Discapacitado" {{ old('tipo_usuario') == 'Discapacitado' ? 'selected' : '' }} data-i18n="Discapacitado">
+                                Discapacitado</option>
+                            <option value="Invitado" {{ old('tipo_usuario') == 'Invitado' ? 'selected' : '' }} data-i18n="Invitado">
+                                Invitado</option>
                         </select>
-                        <span class="help-text" id="tipo_usuario-help">{{ __('messages.select_best_describes') }}</span>
+                        <span class="help-text" id="tipo_usuario-help" data-i18n="Selecciona el tipo que mejor te describe">Selecciona el tipo que mejor te describe</span>
                     </div>
 
                     <div class="input-group" id="campo-identificador" style="display:none;">
-                        <label id="label-identificador" for="identificador">{{ __('messages.identifier') }}<span
+                        <label id="label-identificador" for="identificador"><span data-i18n="Identificador">Identificador</span><span
                                 class="required">*</span></label>
                         <div class="input-wrapper">
                             <input type="text" name="identificador" id="identificador" class="text_field"
@@ -112,118 +112,118 @@
                             <i class="fas fa-times validation-icon error"></i>
                         </div>
                         <span class="error-message"
-                            id="identificador-error">{{ __('messages.enrollment_required') }}</span>
+                            id="identificador-error" data-i18n="Este campo es obligatorio">Este campo es obligatorio</span>
                     </div>
 
                     <div class="input-group" id="campo-discapacitado-extra" style="display:none;">
-                        <label for="tipo_discapacitado_extra">{{ __('messages.also_you') }}</label>
+                        <label for="tipo_discapacitado_extra" data-i18n="¿También eres?">¿También eres?</label>
                         <select id="tipo_discapacitado_extra" name="tipo_discapacitado_extra" class="text_field">
-                            <option value="">{{ __('messages.select_option') }}</option>
-                            <option value="Alumno" {{ old('tipo_discapacitado_extra') == 'Alumno' ? 'selected' : '' }}>
-                                {{ __('messages.student') }}</option>
-                            <option value="Docente" {{ old('tipo_discapacitado_extra') == 'Docente' ? 'selected' : '' }}>
-                                {{ __('messages.teacher') }}</option>
+                            <option value="" data-i18n="Seleccione una opción">Seleccione una opción</option>
+                            <option value="Alumno" {{ old('tipo_discapacitado_extra') == 'Alumno' ? 'selected' : '' }} data-i18n="Alumno">
+                                Alumno</option>
+                            <option value="Docente" {{ old('tipo_discapacitado_extra') == 'Docente' ? 'selected' : '' }} data-i18n="Docente">
+                                Docente</option>
                             <option value="Invitado"
-                                {{ old('tipo_discapacitado_extra') == 'Invitado' ? 'selected' : '' }}>
-                                {{ __('messages.guest') }}</option>
+                                {{ old('tipo_discapacitado_extra') == 'Invitado' ? 'selected' : '' }} data-i18n="Invitado">
+                                Invitado</option>
                         </select>
                     </div>
 
                     <div class="form-navigation">
                         <button type="button" class="btn btn-primary" onclick="nextStep(1)">
-                            {{ __('messages.next') }} <i class="fas fa-arrow-right"></i>
+                            <span data-i18n="Siguiente">Siguiente</span> <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
 
                 {{-- PASO 2: CREDENCIALES --}}
                 <div class="form-step" data-step="2">
-                    <h1>{{ __('messages.step2_title') }}</h1>
-                    <p class="section-subtitle">{{ __('messages.step2_subtitle') }}</p>
+                    <h1 data-i18n="Credenciales de Acceso">Credenciales de Acceso</h1>
+                    <p class="section-subtitle" data-i18n="Crea tu cuenta de forma segura">Crea tu cuenta de forma segura</p>
 
                     <div class="input-group">
-                        <label for="email">{{ __('messages.email') }}<span class="required">*</span></label>
+                        <label for="email"><span data-i18n="Correo Electrónico">Correo Electrónico</span><span class="required">*</span></label>
                         <div class="input-wrapper">
                             <input type="email" name="email" id="email" class="text_field"
-                                placeholder="{{ __('messages.enter_email') }}" required autocomplete="email"
+                                placeholder="ejemplo@correo.com" data-i18n="ejemplo@correo.com" required autocomplete="email"
                                 aria-describedby="email-error" value="{{ old('email') }}">
                             <i class="fas fa-check validation-icon success"></i>
                             <i class="fas fa-times validation-icon error"></i>
                         </div>
-                        <span class="error-message" id="email-error">{{ __('messages.valid_email') }}</span>
+                        <span class="error-message" id="email-error" data-i18n="Ingrese un correo electrónico válido">Ingrese un correo electrónico válido</span>
                     </div>
 
                     <div class="input-group">
-                        <label for="password">{{ __('messages.password') }}<span class="required">*</span></label>
+                        <label for="password"><span data-i18n="Contraseña">Contraseña</span><span class="required">*</span></label>
                         <div class="password-container">
                             <input type="password" name="password" class="text_field" id="password"
-                                placeholder="{{ __('messages.enter_password_min') }}" required
+                                placeholder="Mínimo 8 caracteres" data-i18n="Mínimo 8 caracteres" required
                                 autocomplete="new-password" aria-describedby="password-error password-hint">
                             <button type="button" class="toggle-password" onclick="togglePassword()"
-                                aria-label="{{ __('messages.password') }}">
+                                aria-label="Contraseña" data-i18n-aria-label="Contraseña">
                                 <i class="fa-solid fa-eye" id="eye-icon"></i>
                             </button>
                         </div>
                         <div class="password-strength">
                             <div class="password-strength-bar" id="strengthBar"></div>
                         </div>
-                        <span class="password-hint" id="password-hint">{{ __('messages.use_letters') }}</span>
-                        <span class="error-message" id="password-error">{{ __('messages.password_min_8') }}</span>
+                        <span class="password-hint" id="password-hint" data-i18n="Usa letras, números y símbolos para mayor seguridad">Usa letras, números y símbolos para mayor seguridad</span>
+                        <span class="error-message" id="password-error" data-i18n="La contraseña debe tener al menos 8 caracteres">La contraseña debe tener al menos 8 caracteres</span>
                     </div>
 
                     <div class="input-group">
-                        <label for="confirm-password">{{ __('messages.confirm_password') }}<span
+                        <label for="confirm-password"><span data-i18n="Confirmar Contraseña">Confirmar Contraseña</span><span
                                 class="required">*</span></label>
                         <div class="password-container">
                             <input type="password" name="password_confirmation" class="text_field" id="confirm-password"
-                                placeholder="{{ __('messages.repeat_password') }}" required autocomplete="new-password"
+                                placeholder="Repite tu contraseña" data-i18n="Repite tu contraseña" required autocomplete="new-password"
                                 aria-describedby="confirm-password-error">
                             <button type="button" class="toggle-password" onclick="toggleConfirmPassword()"
-                                aria-label="{{ __('messages.confirm_password') }}">
+                                aria-label="Confirmar Contraseña" data-i18n-aria-label="Confirmar Contraseña">
                                 <i class="fa-solid fa-eye" id="confirm-eye-icon"></i>
                             </button>
                             <i class="fas fa-check validation-icon success"></i>
                             <i class="fas fa-times validation-icon error"></i>
                         </div>
                         <span class="error-message"
-                            id="confirm-password-error">{{ __('messages.passwords_not_match') }}</span>
+                            id="confirm-password-error" data-i18n="Las contraseñas no coinciden">Las contraseñas no coinciden</span>
                     </div>
 
                     <div class="form-navigation">
                         <button type="button" class="btn btn-secondary" onclick="prevStep(2)">
-                            <i class="fas fa-arrow-left"></i> {{ __('messages.prev') }}
+                            <i class="fas fa-arrow-left"></i> <span data-i18n="Anterior">Anterior</span>
                         </button>
                         <button type="button" class="btn btn-primary" onclick="nextStep(2)">
-                            {{ __('messages.next') }} <i class="fas fa-arrow-right"></i>
+                            <span data-i18n="Siguiente">Siguiente</span> <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
 
                 {{-- PASO 3: VEHÍCULOS --}}
                 <div class="form-step" data-step="3">
-                    <h1>{{ __('messages.step3_title') }}</h1>
-                    <p class="section-subtitle">{{ __('messages.step3_subtitle') }}</p>
+                    <h1 data-i18n="Información de Vehículos">Información de Vehículos</h1>
+                    <p class="section-subtitle" data-i18n="Registra los vehículos que usarás en el estacionamiento">Registra los vehículos que usarás en el estacionamiento</p>
 
-                    <h2>{{ __('messages.your_vehicles') }}</h2>
+                    <h2 data-i18n="Tus Vehículos">Tus Vehículos</h2>
                     <div id="vehiculos-container"></div>
 
                     <button type="button" id="agregar-vehiculo" class="btn">
-                        <i class="fas fa-plus"></i> {{ __('messages.add_vehicle') }}
+                        <i class="fas fa-plus"></i> <span data-i18n="Agregar Vehículo">Agregar Vehículo</span>
                     </button>
 
                     <div class="form-navigation">
                         <button type="button" class="btn btn-secondary" onclick="prevStep(3)">
-                            <i class="fas fa-arrow-left"></i> {{ __('messages.prev') }}
+                            <i class="fas fa-arrow-left"></i> <span data-i18n="Anterior">Anterior</span>
                         </button>
                         <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-check"></i> {{ __('messages.register_button') }}
+                            <i class="fas fa-check"></i> <span data-i18n="Registrarse">Registrarse</span>
                         </button>
                     </div>
 
                 </div>
             </form>
 
-            <p id="small">{{ __('messages.have_account') }} <a href="/login">{{ __('messages.login_here') }}</a>
+            <p id="small"><span data-i18n="¿Ya tienes cuenta?">¿Ya tienes cuenta?</span> <a href="/login" data-i18n="Inicia sesión aquí">Inicia sesión aquí</a>
             </p>
 
         </div>
@@ -396,20 +396,30 @@
             identificador.required = false;
             identificador.value = '';
             identificador.classList.remove('valid', 'invalid');
+            identificador.removeAttribute('data-i18n'); // Limpiar atributo anterior
+
+            // Helper para traducción inmediata
+            const currentLang = localStorage.getItem('app_language') || 'es';
+            const dict = window.translations && window.translations[currentLang] ? window.translations[currentLang] : (window.translations ? window.translations['es'] : null);
+            const t = (key) => (dict && dict[key]) ? dict[key] : key;
+
 
             if (tipoUsuario.value === 'Alumno') {
-                labelIdentificador.innerHTML = '{{ __('messages.enrollment') }}<span class="required">*</span>';
-                identificador.placeholder = '{{ __('messages.enter_enrollment') }}';
+                labelIdentificador.innerHTML = `<span data-i18n="Matrícula">${t('Matrícula')}</span><span class="required">*</span>`;
+                identificador.setAttribute('data-i18n', 'Ingrese su matrícula');
+                identificador.placeholder = t('Ingrese su matrícula');
                 campoIdentificador.style.display = 'block';
                 identificador.required = true;
             } else if (tipoUsuario.value === 'Docente') {
-                labelIdentificador.innerHTML = '{{ __('messages.worker_code') }}<span class="required">*</span>';
-                identificador.placeholder = '{{ __('messages.enter_worker_code') }}';
+                labelIdentificador.innerHTML = `<span data-i18n="Clave de Trabajador">${t('Clave de Trabajador')}</span><span class="required">*</span>`;
+                identificador.setAttribute('data-i18n', 'Ingrese su clave de trabajador');
+                identificador.placeholder = t('Ingrese su clave de trabajador');
                 campoIdentificador.style.display = 'block';
                 identificador.required = true;
             } else if (tipoUsuario.value === 'Invitado') {
-                labelIdentificador.innerHTML = '{{ __('messages.curp') }}<span class="required">*</span>';
-                identificador.placeholder = '{{ __('messages.enter_curp') }}';
+                labelIdentificador.innerHTML = `<span data-i18n="CURP">${t('CURP')}</span><span class="required">*</span>`;
+                identificador.setAttribute('data-i18n', 'Ingrese su CURP');
+                identificador.placeholder = t('Ingrese su CURP');
                 campoIdentificador.style.display = 'block';
                 identificador.required = true;
             } else if (tipoUsuario.value === 'Discapacitado') {
@@ -418,14 +428,23 @@
         });
 
         tipoDiscapacitadoExtra.addEventListener('change', () => {
+            identificador.removeAttribute('data-i18n');
+
+            // Helper para traducción inmediata
+            const currentLang = localStorage.getItem('app_language') || 'es';
+            const dict = window.translations && window.translations[currentLang] ? window.translations[currentLang] : (window.translations ? window.translations['es'] : null);
+            const t = (key) => (dict && dict[key]) ? dict[key] : key;
+
             if (tipoDiscapacitadoExtra.value === 'Alumno') {
-                labelIdentificador.innerHTML = '{{ __('messages.enrollment') }}<span class="required">*</span>';
-                identificador.placeholder = '{{ __('messages.enter_enrollment') }}';
+                labelIdentificador.innerHTML = `<span data-i18n="Matrícula">${t('Matrícula')}</span><span class="required">*</span>`;
+                identificador.setAttribute('data-i18n', 'Ingrese su matrícula');
+                identificador.placeholder = t('Ingrese su matrícula');
                 campoIdentificador.style.display = 'block';
                 identificador.required = true;
             } else if (tipoDiscapacitadoExtra.value === 'Docente') {
-                labelIdentificador.innerHTML = '{{ __('messages.worker_code') }}<span class="required">*</span>';
-                identificador.placeholder = '{{ __('messages.enter_worker_code') }}';
+                labelIdentificador.innerHTML = `<span data-i18n="Clave de Trabajador">${t('Clave de Trabajador')}</span><span class="required">*</span>`;
+                identificador.setAttribute('data-i18n', 'Ingrese su clave de trabajador');
+                identificador.placeholder = t('Ingrese su clave de trabajador');
                 campoIdentificador.style.display = 'block';
                 identificador.required = true;
             } else {
@@ -475,17 +494,23 @@
 
             strengthBar.className = 'password-strength-bar';
 
+            const currentLang = localStorage.getItem('app_language') || 'es';
+            const dict = window.translations && (window.translations[currentLang] || window.translations['es']);
+
+            // Función helper para traducir texto simple
+            const t = (key) => dict ? (dict[key] || key) : key;
+
             if (strength === 0 || strength === 1) {
                 strengthBar.classList.add('weak');
-                strengthText.textContent = '{{ __('messages.weak_password') }}';
+                strengthText.textContent = t('Contraseña débil');
                 strengthText.style.color = '#ff6b6b';
             } else if (strength === 2 || strength === 3) {
                 strengthBar.classList.add('medium');
-                strengthText.textContent = '{{ __('messages.medium_password') }}';
+                strengthText.textContent = t('Contraseña media');
                 strengthText.style.color = '#ffd93d';
             } else {
                 strengthBar.classList.add('strong');
-                strengthText.textContent = '{{ __('messages.strong_password') }}';
+                strengthText.textContent = t('Contraseña fuerte');
                 strengthText.style.color = '#4caf50';
             }
         });
@@ -518,44 +543,50 @@
             const html = `
     <div class="vehiculo" id="vehiculo-${vehiculoCount}">
         <h3>
-            {{ __('messages.vehicles') }} ${vehiculoCount}
-            <button type="button" class="remove-vehicle-btn" onclick="removeVehicle(${vehiculoCount})" aria-label="{{ __('messages.remove_vehicle') }} ${vehiculoCount}">
-                <i class="fas fa-trash"></i> {{ __('messages.remove_vehicle') }}
+            <span data-i18n="Vehículos">Vehículos</span> ${vehiculoCount}
+            <button type="button" class="remove-vehicle-btn" onclick="removeVehicle(${vehiculoCount})" aria-label="Eliminar ${vehiculoCount}">
+                <i class="fas fa-trash"></i> <span data-i18n="Eliminar">Eliminar</span>
             </button>
         </h3>
         <div class="vehicle-grid">
             <div class="input-group">
-                <label for="marca-${vehiculoCount}">{{ __('messages.brand') }}<span class="required">*</span></label>
-                <input type="text" name="vehiculos[${vehiculoCount}][marca]" id="marca-${vehiculoCount}" class="text_field" placeholder="{{ __('messages.enter_brand') }}" required>
+                <label for="marca-${vehiculoCount}"><span data-i18n="Marca">Marca</span><span class="required">*</span></label>
+                <input type="text" name="vehiculos[${vehiculoCount}][marca]" id="marca-${vehiculoCount}" class="text_field" placeholder="Ej: Toyota" data-i18n="Ej: Toyota" required>
             </div>
             <div class="input-group">
-                <label for="modelo-${vehiculoCount}">{{ __('messages.model') }}<span class="required">*</span></label>
-                <input type="text" name="vehiculos[${vehiculoCount}][modelo]" id="modelo-${vehiculoCount}" class="text_field" placeholder="{{ __('messages.enter_model') }}" required>
+                <label for="modelo-${vehiculoCount}"><span data-i18n="Modelo">Modelo</span><span class="required">*</span></label>
+                <input type="text" name="vehiculos[${vehiculoCount}][modelo]" id="modelo-${vehiculoCount}" class="text_field" placeholder="Ej: Corolla" data-i18n="Ej: Corolla" required>
             </div>
             <div class="input-group">
-                <label for="color-${vehiculoCount}">{{ __('messages.color') }}<span class="required">*</span></label>
-                <input type="text" name="vehiculos[${vehiculoCount}][color]" id="color-${vehiculoCount}" class="text_field" placeholder="{{ __('messages.enter_color') }}" required>
+                <label for="color-${vehiculoCount}"><span data-i18n="Color">Color</span><span class="required">*</span></label>
+                <input type="text" name="vehiculos[${vehiculoCount}][color]" id="color-${vehiculoCount}" class="text_field" placeholder="Ej: Blanco" data-i18n="Ej: Blanco" required>
             </div>
             <div class="input-group">
-                <label for="placas-${vehiculoCount}">{{ __('messages.plates') }}<span class="required">*</span></label>
-                <input type="text" name="vehiculos[${vehiculoCount}][placas]" id="placas-${vehiculoCount}" class="text_field" placeholder="{{ __('messages.enter_plates') }}" required>
+                <label for="placas-${vehiculoCount}"><span data-i18n="Placas">Placas</span><span class="required">*</span></label>
+                <input type="text" name="vehiculos[${vehiculoCount}][placas]" id="placas-${vehiculoCount}" class="text_field" placeholder="Ej: ABC-123" data-i18n="Ej: ABC-123" required>
             </div>
             <div class="input-group">
-                <label for="anio-${vehiculoCount}">{{ __('messages.year') }}<span class="required">*</span></label>
+                <label for="anio-${vehiculoCount}"><span data-i18n="Año">Año</span><span class="required">*</span></label>
                 <input type="number" name="vehiculos[${vehiculoCount}][anio]" id="anio-${vehiculoCount}" class="text_field" min="1990" max="2025" placeholder="2020" required>
             </div>
             <div class="input-group">
-                <label for="tipo-${vehiculoCount}">{{ __('messages.vehicle_type') }}<span class="required">*</span></label>
+                <label for="tipo-${vehiculoCount}"><span data-i18n="Tipo">Tipo</span><span class="required">*</span></label>
                 <select name="vehiculos[${vehiculoCount}][tipo]" id="tipo-${vehiculoCount}" class="text_field" required>
-                    <option value="">{{ __('messages.select_option') }}</option>
-                    <option value="Auto">{{ __('messages.car') }}</option>
-                    <option value="Motocicleta">{{ __('messages.motorcycle') }}</option>
-                    <option value="Camioneta">{{ __('messages.truck') }}</option>
+                    <option value="" data-i18n="Seleccione una opción">Seleccione una opción</option>
+                    <option value="Auto" data-i18n="Auto">Auto</option>
+                    <option value="Motocicleta" data-i18n="Motocicleta">Motocicleta</option>
+                    <option value="Camioneta" data-i18n="Camioneta">Camioneta</option>
                 </select>
             </div>
         </div>
     </div>`;
             contenedorVehiculos.insertAdjacentHTML('beforeend', html);
+
+            // Traducir el nuevo contenido si es necesario
+            const currentLang = localStorage.getItem('app_language') || 'es';
+            if (currentLang !== 'es' && typeof translatePageContent === 'function') {
+                translatePageContent(currentLang);
+            }
         });
 
         function removeVehicle(id) {

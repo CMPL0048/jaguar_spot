@@ -1,5 +1,5 @@
 @extends('plantilla')
-@section('titulo', __('messages.qr_verification') . ' · Jaguar Spot')
+@section('titulo', 'Verificación de QR · Jaguar Spot')
 
 @section('head')
     <link rel="stylesheet" href="{{ asset('estilos/verificar.css') }}">
@@ -9,43 +9,47 @@
 @section('contenido')
 
     <div class="verificacion-container">
-        <h1 class="titulo">{{ __('messages.qr_verification') }}</h1>
+        <h1 class="titulo" data-i18n="Verificación de QR">Verificación de QR</h1>
 
         @if ($reserva)
             <div class="reserva-info">
                 <!-- Información del puesto -->
                 <div
                     class="puesto-info {{ $reserva->puesto->tipo === 'discapacitado' ? 'puesto-discapacitado' : 'puesto-normal' }}">
-                    <h2>{{ __('messages.spot') }} {{ $reserva->puesto->numero_puesto }}</h2>
+                    <h2><span data-i18n="Puesto">Puesto</span> {{ $reserva->puesto->numero_puesto }}</h2>
                     <p class="puesto-tipo">
-                        {{ $reserva->puesto->tipo === 'discapacitado' ? __('messages.spot_for_disabled') : __('messages.normal_spot_tag') }}
+                        @if ($reserva->puesto->tipo === 'discapacitado')
+                            <span data-i18n="Puesto para Discapacitados">Puesto para Discapacitados</span>
+                        @else
+                            <span data-i18n="Puesto Normal">Puesto Normal</span>
+                        @endif
                     </p>
                 </div>
 
                 <!-- Información del usuario -->
                 <div class="detalles-usuario">
-                    <p><strong>👤 {{ __('messages.user') }}:</strong> {{ $reserva->usuario->nombre_completo }}</p>
-                    <p><strong>🆔 {{ __('messages.enrollment') }}:</strong> {{ $reserva->usuario->matricula }}</p>
-                    <p><strong>⏳ {{ __('messages.state') }}:</strong> <span
-                            class="estado-{{ $reserva->estado }}">{{ ucfirst($reserva->estado) }}</span></p>
-                    <p><strong>🕒 {{ __('messages.request_time') }}:</strong> {{ $reserva->hora_solicitud }}</p>
+                    <p><strong>👤 <span data-i18n="Usuario">Usuario</span>:</strong> {{ $reserva->usuario->nombre_completo }}</p>
+                    <p><strong>🆔 <span data-i18n="Matrícula">Matrícula</span>:</strong> {{ $reserva->usuario->matricula }}</p>
+                    <p><strong>⏳ <span data-i18n="Estado">Estado</span>:</strong> <span
+                            class="estado-{{ $reserva->estado }}" data-i18n="{{ ucfirst($reserva->estado) }}">{{ ucfirst($reserva->estado) }}</span></p>
+                    <p><strong>🕒 <span data-i18n="Hora de Solicitud">Hora de Solicitud</span>:</strong> {{ $reserva->hora_solicitud }}</p>
                 </div>
 
                 <!-- Botones de acción -->
                 <div class="acciones">
                     <form action="{{ route('aprobar.reserva', $reserva->id) }}" method="POST">
                         @csrf
-                        <button type="submit" class="btn btn-success">✅ {{ __('messages.approve_button') }}</button>
+                        <button type="submit" class="btn btn-success">✅ <span data-i18n="Aprobar Reserva">Aprobar Reserva</span></button>
                     </form>
 
                     <form action="{{ route('rechazar.reserva', $reserva->id) }}" method="POST">
                         @csrf
-                        <button type="submit" class="btn btn-danger">❌ {{ __('messages.reject_button') }}</button>
+                        <button type="submit" class="btn btn-danger">❌ <span data-i18n="Rechazar Reserva">Rechazar Reserva</span></button>
                     </form>
                 </div>
             </div>
         @else
-            <p class="error-msg">❌ {{ __('messages.qr_not_found') }}</p>
+            <p class="error-msg">❌ <span data-i18n="Código QR no encontrado">Código QR no encontrado</span></p>
         @endif
     </div>
 
