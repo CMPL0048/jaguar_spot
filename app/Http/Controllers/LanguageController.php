@@ -21,7 +21,7 @@ class LanguageController extends Controller
 
         // Guardar en sesión para la solicitud actual
         session(['app_language' => $language]);
-        
+
         // Guardar en cookie para persistencia de larga duración (1 año)
         // Esto sincroniza con localStorage del navegador
         cookie()->queue(cookie('app_language', $language, 60 * 24 * 365));

@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 1. OBTENER IDIOMA GUARDADO O POR DEFECTO
     let currentLang = localStorage.getItem('app_language') || document.documentElement.lang || 'es';
-    
+
     // Validar idioma
     if (!['es', 'en'].includes(currentLang)) {
         currentLang = 'es';
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // 2. APLICAR IDIOMA GUARDADO AL CARGAR LA PÁGINA
     console.log('✓ Idioma guardado en localStorage:', currentLang);
     languageSelector.value = currentLang;
-    
+
     // Aplicar traducciones inmediatamente si no está en español
     if (currentLang !== 'es' && typeof translatePageContent === 'function') {
         console.log('► Aplicando traducciones del localStorage al cargar...');
@@ -53,6 +53,13 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('► Aplicando traducciones locales...');
             translatePageContent(selectedLanguage);
         }
+
+        // Emitir evento para que otros scripts sepan que cambió el idioma
+        const languageEvent = new CustomEvent('languageChanged', {
+            detail: { language: selectedLanguage }
+        });
+        document.dispatchEvent(languageEvent);
+        console.log('✓ Evento languageChanged emitido');
 
         // Sincronizar con el servidor (para mantener sesión)
         const url = `/set-language/${selectedLanguage}`;

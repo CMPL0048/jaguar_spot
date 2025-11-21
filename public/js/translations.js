@@ -73,6 +73,64 @@ const translations = {
         'Marca del Vehículo': 'Marca del Vehículo',
         'Matrícula': 'Matrícula',
         'Anterior': 'Anterior',
+        'Información de Vehículos': 'Información de Vehículos',
+        'Registra los vehículos que usarás en el estacionamiento': 'Registra los vehículos que usarás en el estacionamiento',
+        'Agregar Vehículo': 'Agregar Vehículo',
+
+        // ===== TEXTOS ADICIONALES FORMULARIOS =====
+        'Datos de tu vehículo': 'Datos de tu vehículo',
+        'Agregar vehículo': 'Agregar vehículo',
+        'Paso 1 de 3': 'Paso 1 de 3',
+        'Paso 2 de 3': 'Paso 2 de 3',
+        'Paso 3 de 3': 'Paso 3 de 3',
+        'Este campo es requerido': 'Este campo es requerido',
+        'El nombre de usuario debe tener al menos 4 caracteres': 'El nombre de usuario debe tener al menos 4 caracteres',
+        'Ingrese un correo electrónico válido': 'Ingrese un correo electrónico válido',
+        'La contraseña debe tener al menos 8 caracteres': 'La contraseña debe tener al menos 8 caracteres',
+        'Las contraseñas no coinciden': 'Las contraseñas no coinciden',
+        'Contraseña débil': 'Contraseña débil',
+        'Contraseña media': 'Contraseña media',
+        'Contraseña fuerte': 'Contraseña fuerte',
+        'Tus Vehículos': 'Tus Vehículos',
+        'Ej: Toyota': 'Ej: Toyota',
+        'Ej: Corolla': 'Ej: Corolla',
+        'Ej: Blanco': 'Ej: Blanco',
+        'Ej: ABC-123': 'Ej: ABC-123',
+
+        // ===== SECCIÓN ADICIONAL VEHÍCULOS =====
+        'Vehículos': 'Vehículos',
+        'Vehículos 1': 'Vehículos 1',
+        'Vehículos 2': 'Vehículos 2',
+        'Vehículos 3': 'Vehículos 3',
+        'Eliminar': 'Eliminar',
+        'Marca': 'Marca',
+        'Modelo': 'Modelo',
+        'Color': 'Color',
+        'Placas': 'Placas',
+        'Año': 'Año',
+        'Tipo': 'Tipo',
+        'Auto': 'Auto',
+        'Moto': 'Moto',
+        'Camión': 'Camión',
+        'Seleccione una opción': 'Seleccione una opción',
+
+        // ===== INDICADORES DE PASOS =====
+        'Datos personales': 'Datos personales',
+        'Credenciales': 'Credenciales',
+        'Vehículos': 'Vehículos',
+        'Paso': 'Paso',
+
+        // ===== NOMBRES DE ESTACIONAMIENTOS =====
+        'Estacionamiento Turismo': 'Estacionamiento Turismo',
+        'Estacionamiento Gimnasio': 'Estacionamiento Gimnasio',
+        'Estacionamiento Rectoría': 'Estacionamiento Rectoría',
+        'Estacionamiento Vinculación': 'Estacionamiento Vinculación',
+        'Selecciona un Puesto': 'Selecciona un Puesto',
+
+        // ===== PANEL ADMIN =====
+        'Panel de Administración': 'Panel de Administración',
+        'Reservas Pendientes': 'Reservas Pendientes',
+        'Puestos Ocupados': 'Puestos Ocupados',
 
         // ===== MIS RESERVAS =====
         '📌 Mis Reservas': '📌 Mis Reservas',
@@ -180,8 +238,66 @@ const translations = {
         'Marca del Vehículo': 'Vehicle Brand',
         'Matrícula': 'License Plate',
         'Anterior': 'Previous',
+        'Información de Vehículos': 'Vehicle Information',
+        'Registra los vehículos que usarás en el estacionamiento': 'Register the vehicles you will use in the parking lot',
+        'Agregar Vehículo': 'Add Vehicle',
 
-        // ===== MY RESERVATIONS =====
+        // ===== TEXTOS ADICIONALES FORMULARIOS =====
+        'Datos de tu vehículo': 'Your vehicle information',
+        'Agregar vehículo': 'Add Vehicle',
+        'Paso 1 de 3': 'Step 1 of 3',
+        'Paso 2 de 3': 'Step 2 of 3',
+        'Paso 3 de 3': 'Step 3 of 3',
+        'Este campo es requerido': 'This field is required',
+        'El nombre de usuario debe tener al menos 4 caracteres': 'Username must be at least 4 characters',
+        'Ingrese un correo electrónico válido': 'Enter a valid email address',
+        'La contraseña debe tener al menos 8 caracteres': 'Password must be at least 8 characters',
+        'Las contraseñas no coinciden': 'Passwords do not match',
+        'Contraseña débil': 'Weak password',
+        'Contraseña media': 'Medium password',
+        'Contraseña fuerte': 'Strong password!',
+        'Tus Vehículos': 'Your Vehicles',
+        'Ej: Toyota': 'Ex: Toyota',
+        'Ej: Corolla': 'Ex: Corolla',
+        'Ej: Blanco': 'Ex: White',
+        'Ej: ABC-123': 'Ex: ABC-123',
+
+        // ===== SECCIÓN ADICIONAL VEHÍCULOS =====
+        'Vehículos': 'Vehicles',
+        'Vehículos 1': 'Vehicles 1',
+        'Vehículos 2': 'Vehicles 2',
+        'Vehículos 3': 'Vehicles 3',
+        'Eliminar': 'Delete',
+        'Marca': 'Brand',
+        'Modelo': 'Model',
+        'Color': 'Color',
+        'Placas': 'License Plate',
+        'Año': 'Year',
+        'Tipo': 'Type',
+        'Auto': 'Car',
+        'Moto': 'Motorcycle',
+        'Camión': 'Truck',
+        'Seleccione una opción': 'Select an option',
+
+        // ===== INDICADORES DE PASOS =====
+        'Datos personales': 'Personal Information',
+        'Credenciales': 'Credentials',
+        'Vehículos': 'Vehicles',
+        'Paso': 'Step',
+
+        // ===== NOMBRES DE ESTACIONAMIENTOS =====
+        'Estacionamiento Turismo': 'Tourism Parking',
+        'Estacionamiento Gimnasio': 'Gymnasium Parking',
+        'Estacionamiento Rectoría': 'Rectory Parking',
+        'Estacionamiento Vinculación': 'Linkage Parking',
+        'Selecciona un Puesto': 'Select a Space',
+
+        // ===== PANEL ADMIN =====
+        'Panel de Administración': 'Administration Panel',
+        'Reservas Pendientes': 'Pending Reservations',
+        'Puestos Ocupados': 'Occupied Spaces',
+
+        // ===== MIS RESERVAS =====
         '📌 Mis Reservas': '📌 My Reservations',
         'No tienes reservas activas en este momento.': 'You have no active reservations at this moment.',
         'Puesto:': 'Space:',
@@ -222,9 +338,28 @@ const translations = {
 
 /**
  * Función para traducir el contenido HTML de la página
+ * Soporta traducción bidireccional (ES ↔ EN)
  */
 function translatePageContent(targetLanguage) {
+    // Obtener diccionario del idioma destino
     const dict = translations[targetLanguage] || translations['es'];
+
+    // Crear diccionario inverso para traducir contenido actual
+    // Si vamos a ES, invertimos EN (traducir de EN → ES)
+    // Si vamos a EN, invertimos ES (traducir de ES → EN)
+    let reversedDict = {};
+
+    if (targetLanguage === 'es') {
+        // El contenido actual está en inglés, invertimos el diccionario en
+        for (const [spanishKey, englishValue] of Object.entries(translations['en'])) {
+            reversedDict[englishValue] = spanishKey;
+        }
+    } else if (targetLanguage === 'en') {
+        // El contenido actual está en español, invertimos el diccionario es
+        for (const [spanishKey] of Object.entries(translations['es'])) {
+            reversedDict[spanishKey] = translations['en'][spanishKey] || spanishKey;
+        }
+    }
 
     // Traducir todos los nodos de texto
     for (const element of document.querySelectorAll('*')) {
@@ -242,7 +377,12 @@ function translatePageContent(targetLanguage) {
             if (node.nodeType === Node.TEXT_NODE) {
                 let text = node.textContent.trim();
 
-                if (text && dict[text]) {
+                // Buscar en diccionario invertido primero (para traducciones existentes)
+                if (text && reversedDict[text]) {
+                    node.textContent = reversedDict[text];
+                }
+                // Si no encuentra, buscar en diccionario directo
+                else if (text && dict[text]) {
                     node.textContent = dict[text];
                 }
             }
@@ -250,18 +390,27 @@ function translatePageContent(targetLanguage) {
 
         // Traducir atributos title, placeholder, alt
         const titleAttr = element.getAttribute('title');
-        if (titleAttr && dict[titleAttr]) {
-            element.setAttribute('title', dict[titleAttr]);
+        if (titleAttr) {
+            const translated = reversedDict[titleAttr] || dict[titleAttr];
+            if (translated) {
+                element.setAttribute('title', translated);
+            }
         }
 
         const placeholderAttr = element.getAttribute('placeholder');
-        if (placeholderAttr && dict[placeholderAttr]) {
-            element.setAttribute('placeholder', dict[placeholderAttr]);
+        if (placeholderAttr) {
+            const translated = reversedDict[placeholderAttr] || dict[placeholderAttr];
+            if (translated) {
+                element.setAttribute('placeholder', translated);
+            }
         }
 
         const altAttr = element.getAttribute('alt');
-        if (altAttr && dict[altAttr]) {
-            element.setAttribute('alt', dict[altAttr]);
+        if (altAttr) {
+            const translated = reversedDict[altAttr] || dict[altAttr];
+            if (translated) {
+                element.setAttribute('alt', translated);
+            }
         }
     }
 
