@@ -15,6 +15,7 @@ class Kernel extends HttpKernel {
         \Illuminate\Http\Middleware\ValidateCsrfToken::class,
         \Illuminate\Http\Middleware\CheckResponseForModifications::class,
         \Illuminate\Http\Middleware\PreventRequestsDuringMaintenance::class,
+        \App\Http\Middleware\SetLanguageFromSession::class,
     ];
 
     /**

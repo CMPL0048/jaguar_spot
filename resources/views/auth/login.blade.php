@@ -1,5 +1,5 @@
 @extends('plantilla')
-@section('titulo', 'Inicio de Sesión · Jaguar Spot')
+@section('titulo', 'Iniciar Sesión · Jaguar Spot')
 @section('head')
     <link rel="stylesheet" href="estilos/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -8,59 +8,47 @@
 
 @section('nav')
     <ul>
-        <li><a href="/"><i class="fas fa-home"></i> Inicio</a></li>
-        <li><a href="/estacionamientos"><i class="fas fa-parking"></i> Estacionamientos</a></li>
-        <li><a href="/ayuda"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+        <li><a href="/"><i class="fas fa-home"></i> <span data-i18n="Inicio">Inicio</span></a></li>
+        <li><a href="/estacionamientos"><i class="fas fa-parking"></i> <span data-i18n="Estacionamientos">Estacionamientos</span></a></li>
+        <li><a href="/ayuda"><i class="fas fa-question-circle"></i> <span data-i18n="Ayuda">Ayuda</span></a></li>
     </ul>
 @endsection
 
 @section('contenido')
     <div class="section_color">
         <div class="login-image">
-            <img src="{{ asset('imagenes/iconos/undraw_website_zbig.svg') }}" alt="Ilustración de inicio de sesión">
+            <img src="{{ asset('imagenes/iconos/undraw_website_zbig.svg') }}" alt="Iniciar Sesión" data-i18n-alt="Iniciar Sesión">
         </div>
-        
+
         <div class="login-content">
-            <h1>Iniciar Sesión</h1>
-            <p class="section-subtitle">Ingresa tus credenciales para acceder</p>
+            <h1 data-i18n="Iniciar Sesión">Iniciar Sesión</h1>
+            <p class="section-subtitle" data-i18n="Ingresa tus credenciales para acceder">Ingresa tus credenciales para acceder</p>
 
             <form action="{{ route('login.post') }}" method="POST" class="formulario" novalidate>
                 @csrf <div class="input-group">
-                    <label for="usuario">Nombre de Usuario</label> 
-                    <div class="input-wrapper"> <input 
-                            type="text" 
-                            name="usuario" 
-                            id="usuario" 
-                            class="text_field" 
-                            placeholder="Ingrese su usuario" 
-                            required
-                            autocomplete="username"
-                        >
+                    <label for="usuario" data-i18n="Nombre de Usuario">Nombre de Usuario</label>
+                    <div class="input-wrapper"> <input type="text" name="usuario" id="usuario" class="text_field"
+                            placeholder="Ingrese su usuario" data-i18n="Ingrese su usuario" required autocomplete="username">
                     </div>
                 </div>
 
                 <div class="input-group">
-                    <label for="password">Contraseña</label>
+                    <label for="password" data-i18n="Contraseña">Contraseña</label>
                     <div class="password-container">
-                        <input 
-                            type="password" 
-                            name="password" 
-                            class="text_field" 
-                            id="password" 
-                            placeholder="Ingrese su contraseña" 
-                            required
-                            autocomplete="current-password"
-                        >
-                        <button type="button" class="toggle-password" onclick="togglePassword('password', 'eye-icon')" aria-label="Mostrar contraseña">
+                        <input type="password" name="password" class="text_field" id="password"
+                            placeholder="Ingrese su contraseña" data-i18n="Ingrese su contraseña" required autocomplete="current-password">
+                        <button type="button" class="toggle-password" onclick="togglePassword('password', 'eye-icon')"
+                            aria-label="Contraseña" data-i18n-aria-label="Contraseña">
                             <i class="fa-solid fa-eye" id="eye-icon"></i>
                         </button>
                     </div>
                 </div>
 
-                <p id="small" style="text-align: center;">¿Aún no tienes cuenta? <a href="/register">Regístrate aquí</a></p>
-                
+                <p id="small" style="text-align: center;"><span data-i18n="¿Aún no tienes cuenta?">¿Aún no tienes cuenta?</span> <a
+                        href="/register" data-i18n="Regístrate aquí">Regístrate aquí</a></p>
+
                 <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-sign-in-alt"></i> Ingresar
+                    <i class="fas fa-sign-in-alt"></i> <span data-i18n="Ingresar">Ingresar</span>
                 </button>
             </form>
         </div>
@@ -70,7 +58,7 @@
         function togglePassword(inputId, iconId) {
             const passwordField = document.getElementById(inputId);
             const eyeIcon = document.getElementById(iconId);
-            
+
             if (passwordField.type === 'password') {
                 passwordField.type = 'text';
                 eyeIcon.classList.remove('fa-eye');
