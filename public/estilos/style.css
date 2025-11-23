@@ -22,37 +22,52 @@ body {
     }
 }
 
+@media only screen and (min-width:768px){
+    .contenedor{
+        width: 720px;
+    }
+}
+
+@media only screen and (min-width:992px){
+    .contenedor{
+        width: 960px;
+    }
+}
+
 @media only screen and (min-width:1200px){
     .contenedor{
-        width: 1140px;
+        width: 1320px;
     }
 }
 
 nav {
-    display: flex; /* Utilizamos flexbox para alinear los elementos */
-    justify-content: space-between; /* Alinea los elementos con espacio entre ellos */
-    align-items: center; /* Centra los elementos verticalmente */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding-top: 50px;
     padding-bottom: 0px;
     color: rgb(243, 217, 184);
-    height: 80px; /* Aseguramos una altura para el navbar */
+    height: 100px;
 }
 
 nav .logo-container {
     display: flex;
     align-items: center;
+    white-space: nowrap;
 }
 
 nav .icon {
     width: 120px;
     height: auto;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 nav h1 {
     margin: 0;
     font-family: 'Raleway', sans-serif;
     font-size: 30px;
+    white-space: nowrap;
 }
 
 nav ul {
@@ -60,7 +75,7 @@ nav ul {
     display: flex;
     margin: 0;
     padding: 0;
-    gap: 8px;
+    gap: 30px;
 }
 
 nav ul li {
@@ -70,21 +85,15 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: rgb(243, 217, 184);
-    font-size: 16px;
+    font-size: 18px;
     transition: color 0.3s;
     font-family: 'Raleway', sans-serif;
     font-weight: 200;
-    padding: 8px 12px;
-    border-radius: 6px;
     white-space: nowrap;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
 }
 
 nav ul li a:hover {
     color: rgb(207, 163, 107);
-    background-color: rgba(243, 217, 184, 0.05);
 }
 
 .curved-green {
@@ -190,22 +199,17 @@ nav ul li a:hover {
     border: none;
     text-decoration: none;
     color: rgb(243, 217, 184);
-    font-size: 16px;
+    font-size: 18px;
     transition: color 0.3s;
     font-family: 'Raleway', sans-serif;
     font-weight: 200;
-    padding: 8px 12px;
+    padding: 0;
     cursor: pointer;
-    border-radius: 6px;
     white-space: nowrap;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
 }
 
 .logout-link:hover {
     color: rgb(207, 163, 107);
-    background-color: rgba(243, 217, 184, 0.05);
 }
 
 /* =========================
@@ -222,7 +226,7 @@ nav ul li a:hover {
 
 /* Contenedor: fluido con límites tipo Bootstrap */
 .contenedor{
-  width: min(92%, 1140px);   /* 92% hasta tope */
+  width: min(92%, 1320px);   /* 92% hasta tope */
 }
 @media (min-width: 576px){
   .contenedor{ width: 540px; }
@@ -234,7 +238,7 @@ nav ul li a:hover {
   .contenedor{ width: 960px; }
 }
 @media (min-width: 1200px){
-  .contenedor{ width: 1140px; }
+  .contenedor{ width: 1320px; }
 }
 
 /* ---------- Header / Nav ---------- */

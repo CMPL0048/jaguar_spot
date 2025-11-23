@@ -29,9 +29,9 @@
         <img src="imagenes/jaguar_inicio.jpg" class="img_inicio">
         <p data-i18n="Jaguar Spot te permitirá tener el control de tu estacionamiento dentro de la universidad, ¿qué esperas para estacionarte de manera efectiva?">Jaguar Spot te permitirá tener el control de tu estacionamiento dentro de la universidad, ¿qué esperas para estacionarte de manera efectiva?</p>
         <br><br><br>
-        <button class="btn">
+        <a href="{{ route('estacionamientos.index') }}" class="btn">
             <span data-i18n="Comenzar a usar">Comenzar a usar</span>
-        </button>
+        </a>
         <br><br>
     </div>
 

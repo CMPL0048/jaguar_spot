@@ -213,7 +213,10 @@ const translations = {
 
         // ===== LEYENDA DE COLORES =====
         'Glosario': 'Glosario',
+        'Disponible': 'Disponible',
         'Pendiente de Aprobación': 'Pendiente de Aprobación',
+        'Ocupado': 'Ocupado',
+        'Discapacitado': 'Discapacitado',
     },
     en: {
         // ===== NAVIGATION =====
@@ -415,7 +418,10 @@ const translations = {
 
         // ===== LEYENDA DE COLORES =====
         'Glosario': 'Legend',
+        'Disponible': 'Available',
         'Pendiente de Aprobación': 'Pending Approval',
+        'Ocupado': 'Occupied',
+        'Discapacitado': 'Disabled',
 
         // ===== ADMIN =====
         'Admin Dashboard': 'Admin Dashboard',
