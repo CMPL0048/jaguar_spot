@@ -69,5 +69,75 @@
                 eyeIcon.classList.add('fa-eye');
             }
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.formulario');
+
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    let isValid = true;
+                    let firstErrorInput = null;
+                    let errorCount = 0;
+
+                    const inputs = form.querySelectorAll('input[required]');
+
+                    inputs.forEach(input => {
+                        if (!input.value.trim()) {
+                            isValid = false;
+                            errorCount++;
+                            if (!firstErrorInput) firstErrorInput = input;
+                            input.classList.add('invalid');
+                        } else {
+                            input.classList.remove('invalid');
+                        }
+                    });
+
+                    if (!isValid) {
+                        event.preventDefault();
+
+                        const currentLang = localStorage.getItem('app_language') || 'es';
+                        const dict = window.translations && window.translations[currentLang] ? window.translations[currentLang] : (window.translations ? window.translations['es'] : null);
+                        const t = (key) => (dict && dict[key]) ? dict[key] : key;
+
+                        let title = t('Atención');
+                        let text = '';
+
+                        if (errorCount > 1) {
+                            text = t('Favor de rellenar los campos solicitados');
+                        } else if (firstErrorInput) {
+                            let fieldName = firstErrorInput.name;
+                            const label = document.querySelector(`label[for="${firstErrorInput.id}"]`);
+                            if (label) {
+                                if (label.dataset.i18n) {
+                                    fieldName = label.dataset.i18n;
+                                } else {
+                                    fieldName = label.innerText.trim();
+                                }
+                            }
+                            const translatedFieldName = t(fieldName);
+                            text = `${t('Por favor, completa el campo')}: ${translatedFieldName}`;
+                        }
+
+                        Swal.fire({
+                            icon: 'warning',
+                            title: title,
+                            text: text,
+                            confirmButtonColor: '#f39c12',
+                            confirmButtonText: t('Aceptar')
+                        });
+                    }
+                });
+
+                // Limpiar error al escribir
+                const inputs = form.querySelectorAll('input[required]');
+                inputs.forEach(input => {
+                    input.addEventListener('input', function() {
+                        if (this.value.trim()) {
+                            this.classList.remove('invalid');
+                        }
+                    });
+                });
+            }
+        });
     </script>
 @endsection

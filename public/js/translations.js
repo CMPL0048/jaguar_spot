@@ -21,14 +21,14 @@ const translations = {
         'Comenzar a usar': 'Comenzar a usar',
 
         // ===== LISTA DE ESTACIONAMIENTOS =====
-        '🚗 Estacionamientos Disponibles': '🚗 Estacionamientos Disponibles',
+        '🚗 Estacionamientos Disponibles': '🚗 Estacionamientos Disponibles', // Legacy
+        'Estacionamientos Disponibles': 'Estacionamientos Disponibles', // New clean key
         'Selecciona un Estacionamiento': 'Selecciona un Estacionamiento',
         'Capacidad:': 'Capacidad:',
         'espacios': 'espacios',
         'Estacionamiento Turismo': 'Estacionamiento Turismo',
         'Estacionamiento Gimnasio': 'Estacionamiento Gimnasio',
         'Estacionamiento Rectoría': 'Estacionamiento Rectoría',
-        'Estacionamiento Rectoria': 'Estacionamiento Rectoría', // Variante sin tilde
         'Estacionamiento Vinculación': 'Estacionamiento Vinculación',
 
         // ===== DETALLE DE ESTACIONAMIENTO =====
@@ -41,8 +41,6 @@ const translations = {
         'Contraseña': 'Contraseña',
         'Ingrese su contraseña': 'Ingrese su contraseña',
         '¿Aún no tienes cuenta? Regístrate aquí': '¿Aún no tienes cuenta? Regístrate aquí',
-        '¿Aún no tienes cuenta?': '¿Aún no tienes cuenta?', // NUEVO
-        'Regístrate aquí': 'Regístrate aquí', // NUEVO
         '¿Ya tienes cuenta? Inicia sesión aquí': '¿Ya tienes cuenta? Inicia sesión aquí',
         'Ingresar': 'Ingresar',
 
@@ -71,7 +69,6 @@ const translations = {
         'Mínimo 8 caracteres': 'Mínimo 8 caracteres',
         'Usa letras, números y símbolos para mayor seguridad': 'Usa letras, números y símbolos para mayor seguridad',
         'Confirmar Contraseña': 'Confirmar Contraseña',
-        'Repite tu contraseña': 'Repite tu contraseña',
         'Datos de Vehículos': 'Datos de Vehículos',
         'Agrega los vehículos que utilizarás': 'Agrega los vehículos que utilizarás',
         'Marca del Vehículo': 'Marca del Vehículo',
@@ -94,7 +91,13 @@ const translations = {
         'Las contraseñas no coinciden': 'Las contraseñas no coinciden',
         'Contraseña débil': 'Contraseña débil',
         'Contraseña media': 'Contraseña media',
-        'Contraseña fuerte': 'Contraseña fuerte',
+        '¡Contraseña fuerte!': '¡Contraseña fuerte!',
+
+        // Nombres de Estacionamientos
+        'Estacionamiento Turismo': 'Estacionamiento Turismo',
+        'Estacionamiento Gimnasio': 'Estacionamiento Gimnasio',
+        'Estacionamiento Rectoría': 'Estacionamiento Rectoría',
+        'Estacionamiento Vinculación': 'Estacionamiento Vinculación',
         'Tus Vehículos': 'Tus Vehículos',
         'Ej: Toyota': 'Ej: Toyota',
         'Ej: Corolla': 'Ej: Corolla',
@@ -102,9 +105,11 @@ const translations = {
         'Ej: ABC-123': 'Ej: ABC-123',
 
         // ===== SECCIÓN ADICIONAL VEHÍCULOS =====
+        'Vehículos': 'Vehículos',
         'Vehículos 1': 'Vehículos 1',
         'Vehículos 2': 'Vehículos 2',
         'Vehículos 3': 'Vehículos 3',
+        'Eliminar': 'Eliminar',
         'Marca': 'Marca',
         'Modelo': 'Modelo',
         'Color': 'Color',
@@ -113,17 +118,23 @@ const translations = {
         'Tipo': 'Tipo',
         'Auto': 'Auto',
         'Moto': 'Moto',
-        'Motocicleta': 'Motocicleta',
         'Camión': 'Camión',
-        'Camioneta': 'Camioneta',
+        'Seleccione una opción': 'Seleccione una opción',
 
         // ===== INDICADORES DE PASOS =====
         'Datos personales': 'Datos personales',
         'Credenciales': 'Credenciales',
+        'Vehículos': 'Vehículos',
         'Paso': 'Paso',
 
         // ===== NOMBRES DE ESTACIONAMIENTOS =====
-        // (Ya definidos arriba)
+        'Estacionamiento Turismo': 'Estacionamiento Turismo',
+        'Estacionamiento Gimnasio': 'Estacionamiento Gimnasio',
+        'Estacionamiento Rectoría': 'Estacionamiento Rectoría',
+        'Estacionamiento Rectoria': 'Estacionamiento Rectoría', // Variante sin tilde
+        'Estacionamiento Vinculación': 'Estacionamiento Vinculación',
+        'Estacionamiento Vinculacion': 'Estacionamiento Vinculación', // Variante sin tilde
+        'Selecciona un Puesto': 'Selecciona un Puesto',
 
         // ===== PANEL ADMIN =====
         'Panel de Administración': 'Panel de Administración',
@@ -139,12 +150,26 @@ const translations = {
         'Solicitado:': 'Solicitado:',
         'Aceptado:': 'Aceptado:',
         'Ver QR': 'Ver QR',
+        'Tu reserva ha sido rechazada.': 'Tu reserva ha sido rechazada.',
         'Pendiente': 'Pendiente',
         'Aceptada': 'Aceptada',
         'Rechazada': 'Rechazada',
         'aceptado': 'aceptado',
         'pendiente': 'pendiente',
         'rechazado': 'rechazado',
+        'Solicitado': 'Solicitado', // Sin dos puntos
+        'Aprobado': 'Aprobado', // Sin dos puntos
+        'Ver código QR': 'Ver código QR',
+        'Puesto': 'Puesto', // Sin dos puntos
+        'Mis Reservas': 'Mis Reservas', // Sin emoji para coincidir con el HTML
+        'Reserva aprobada con éxito.': 'Reserva aprobada con éxito.',
+        'Reserva rechazada y puesto liberado.': 'Reserva rechazada y puesto liberado.',
+        'Puesto liberado y reserva eliminada con éxito.': 'Puesto liberado y reserva eliminada con éxito.',
+        'Debes iniciar sesión para reservar un puesto.': 'Debes iniciar sesión para reservar un puesto.',
+        'Este puesto ya está ocupado o en espera de aprobación.': 'Este puesto ya está ocupado o en espera de aprobación.',
+        'Puesto reservado con éxito. Verifica en tu lista de reservas.': 'Puesto reservado con éxito. Verifica en tu lista de reservas.',
+        'Reserva aprobada y puesto marcado como aceptado.': 'Reserva aprobada y puesto marcado como aceptado.',
+        'Registro exitoso. Ahora puedes iniciar sesión.': 'Registro exitoso. Ahora puedes iniciar sesión.',
 
         // ===== ADMIN =====
         'Admin Dashboard': 'Admin Dashboard',
@@ -165,29 +190,30 @@ const translations = {
         'Editar': 'Editar',
         'Volver': 'Volver',
         'Cargando...': 'Cargando...',
-        'Cargando': 'Cargando',
-        'Desconocido': 'Desconocido',
-        'Ver código QR': 'Ver código QR',
-        'Aprobar': 'Aprobar',
-        'Rechazar': 'Rechazar',
-        'Liberar': 'Liberar',
-        'Solicitado': 'Solicitado',
-        'Aprobado': 'Aprobado',
-        'Tu reserva ha sido rechazada.': 'Tu reserva ha sido rechazada.',
-        'No tienes reservas activas.': 'No tienes reservas activas.',
-        'Verificación de QR': 'Verificación de QR',
-        'Estado': 'Estado',
-        'Hora de Solicitud': 'Hora de Solicitud',
-        'Aprobar Reserva': 'Aprobar Reserva',
-        'Rechazar Reserva': 'Rechazar Reserva',
-        'Código QR no encontrado': 'Código QR no encontrado',
-        '¿Ya tienes cuenta?': '¿Ya tienes cuenta?',
-        'Inicia sesión aquí': 'Inicia sesión aquí',
-        'Clave de Trabajador': 'Clave de Trabajador',
-        'Ingrese su clave de trabajador': 'Ingrese su clave de trabajador',
+        'Credenciales incorrectas': 'Credenciales incorrectas',
+        'Inicio de sesión exitoso': 'Inicio de sesión exitoso',
+        'Has cerrado sesión': 'Has cerrado sesión',
+        'Registro completado': 'Registro completado',
+        'Reserva aprobada': 'Reserva aprobada',
+        'Reserva rechazada': 'Reserva rechazada',
+        'Puesto liberado': 'Puesto liberado',
+        'Error al reservar': 'Error al reservar',
+        'Usuario no encontrado': 'Usuario no encontrado',
+        'Contraseña incorrecta': 'Contraseña incorrecta',
+        'Oops...': 'Oops...',
+        'Algo salió mal': 'Algo salió mal',
+        'Bienvenido al panel de administración': 'Bienvenido al panel de administración',
+        'Sesión cerrada correctamente': 'Sesión cerrada correctamente',
         'Ingrese su matrícula': 'Ingrese su matrícula',
-        'CURP': 'CURP',
+        'Ingrese su clave de trabajador': 'Ingrese su clave de trabajador',
         'Ingrese su CURP': 'Ingrese su CURP',
+        'Atención': 'Atención',
+        'Por favor, completa el campo': 'Por favor, completa el campo',
+        'Favor de rellenar los campos solicitados': 'Favor de rellenar los campos solicitados',
+
+        // ===== LEYENDA DE COLORES =====
+        'Glosario': 'Glosario',
+        'Pendiente de Aprobación': 'Pendiente de Aprobación',
     },
     en: {
         // ===== NAVIGATION =====
@@ -206,14 +232,14 @@ const translations = {
         'Comenzar a usar': 'Get Started',
 
         // ===== PARKING LOTS LIST =====
-        '🚗 Estacionamientos Disponibles': '🚗 Available Parking Lots',
+        '🚗 Estacionamientos Disponibles': '🚗 Available Parking Lots', // Legacy
+        'Estacionamientos Disponibles': 'Available Parking Lots', // New clean key
         'Selecciona un Estacionamiento': 'Select a Parking Lot',
         'Capacidad:': 'Capacity:',
         'espacios': 'spaces',
         'Estacionamiento Turismo': 'Tourism Parking',
         'Estacionamiento Gimnasio': 'Gym Parking',
         'Estacionamiento Rectoría': 'Rectory Parking',
-        'Estacionamiento Rectoria': 'Rectory Parking', // Variante sin tilde
         'Estacionamiento Vinculación': 'Linkage Parking',
 
         // ===== PARKING DETAILS =====
@@ -226,8 +252,6 @@ const translations = {
         'Contraseña': 'Password',
         'Ingrese su contraseña': 'Enter your password',
         '¿Aún no tienes cuenta? Regístrate aquí': 'Don\'t have an account? Register here',
-        '¿Aún no tienes cuenta?': 'Don\'t have an account?', // NUEVO
-        'Regístrate aquí': 'Register here', // NUEVO
         '¿Ya tienes cuenta? Inicia sesión aquí': 'Already have an account? Sign in here',
         'Ingresar': 'Login',
 
@@ -256,11 +280,10 @@ const translations = {
         'Mínimo 8 caracteres': 'Minimum 8 characters',
         'Usa letras, números y símbolos para mayor seguridad': 'Use letters, numbers and symbols for greater security',
         'Confirmar Contraseña': 'Confirm Password',
-        'Repite tu contraseña': 'Repeat your password',
         'Datos de Vehículos': 'Vehicle Data',
         'Agrega los vehículos que utilizarás': 'Add the vehicles you will use',
         'Marca del Vehículo': 'Vehicle Brand',
-        'Matrícula': 'Driver´s license',
+        'Matrícula': 'Driver´s ID',
         'Anterior': 'Previous',
         'Información de Vehículos': 'Vehicle Information',
         'Registra los vehículos que usarás en el estacionamiento': 'Register the vehicles you will use in the parking lot',
@@ -279,7 +302,15 @@ const translations = {
         'Las contraseñas no coinciden': 'Passwords do not match',
         'Contraseña débil': 'Weak password',
         'Contraseña media': 'Medium password',
-        'Contraseña fuerte': 'Strong password!',
+        '¡Contraseña fuerte!': 'Strong password!',
+
+        // Parking Lot Names
+        'Estacionamiento Turismo': 'Tourism Parking',
+        'Estacionamiento Gimnasio': 'Gymnasium Parking',
+        'Estacionamiento Rectoría': 'Rectory Parking',
+        'Estacionamiento Rectoria': 'Rectory Parking',
+        'Estacionamiento Vinculación': 'Linkage Parking',
+        'Estacionamiento Vinculacion': 'Linkage Parking',
         'Tus Vehículos': 'Your Vehicles',
         'Ej: Toyota': 'Ex: Toyota',
         'Ej: Corolla': 'Ex: Corolla',
@@ -287,9 +318,11 @@ const translations = {
         'Ej: ABC-123': 'Ex: ABC-123',
 
         // ===== SECCIÓN ADICIONAL VEHÍCULOS =====
+        'Vehículos': 'Vehicles',
         'Vehículos 1': 'Vehicles 1',
         'Vehículos 2': 'Vehicles 2',
         'Vehículos 3': 'Vehicles 3',
+        'Eliminar': 'Delete',
         'Marca': 'Brand',
         'Modelo': 'Model',
         'Color': 'Color',
@@ -298,17 +331,23 @@ const translations = {
         'Tipo': 'Type',
         'Auto': 'Car',
         'Moto': 'Motorcycle',
-        'Motocicleta': 'Motorcycle',
         'Camión': 'Truck',
-        'Camioneta': 'Truck',
+        'Seleccione una opción': 'Select an option',
 
         // ===== INDICADORES DE PASOS =====
         'Datos personales': 'Personal Information',
         'Credenciales': 'Credentials',
+        'Vehículos': 'Vehicles',
         'Paso': 'Step',
 
         // ===== NOMBRES DE ESTACIONAMIENTOS =====
-        // (Already defined above)
+        'Estacionamiento Turismo': 'Tourism Parking',
+        'Estacionamiento Gimnasio': 'Gymnasium Parking',
+        'Estacionamiento Rectoría': 'Rectory Parking',
+        'Estacionamiento Rectoria': 'Rectory Parking',
+        'Estacionamiento Vinculación': 'Linkage Parking',
+        'Estacionamiento Vinculacion': 'Linkage Parking',
+        'Selecciona un Puesto': 'Select a Space',
 
         // ===== PANEL ADMIN =====
         'Panel de Administración': 'Administration Panel',
@@ -324,12 +363,59 @@ const translations = {
         'Solicitado:': 'Requested:',
         'Aceptado:': 'Accepted:',
         'Ver QR': 'View QR',
+        'Tu reserva ha sido rechazada.': 'Your reservation has been rejected.',
         'Pendiente': 'Pending',
         'Aceptada': 'Accepted',
         'Rechazada': 'Rejected',
         'aceptado': 'accepted',
         'pendiente': 'pending',
         'rechazado': 'rejected',
+        'Solicitado': 'Requested',
+        'Aprobado': 'Approved',
+        'Ver código QR': 'View QR code',
+        'Puesto': 'Space',
+        'Mis Reservas': 'My Reservations',
+        'Reserva aprobada con éxito.': 'Reservation approved successfully.',
+        'Reserva rechazada y puesto liberado.': 'Reservation rejected and spot released.',
+        'Puesto liberado y reserva eliminada con éxito.': 'Spot released and reservation deleted successfully.',
+        'Debes iniciar sesión para reservar un puesto.': 'You must log in to reserve a spot.',
+        'Este puesto ya está ocupado o en espera de aprobación.': 'This spot is already occupied or awaiting approval.',
+        'Puesto reservado con éxito. Verifica en tu lista de reservas.': 'Spot reserved successfully. Check your reservations list.',
+        'Reserva aprobada y puesto marcado como aceptado.': 'Reservation approved and spot marked as accepted.',
+        'Registro exitoso. Ahora puedes iniciar sesión.': 'Registration successful. You can now log in.',
+
+        // ===== MISSING KEYS ADDED =====
+        'Cargando': 'Loading',
+        'Usuario': 'User',
+        'Verificación de QR': 'QR Verification',
+        'Estado': 'Status',
+        'Hora de Solicitud': 'Request Time',
+        'Aprobar Reserva': 'Approve Reservation',
+        'Rechazar Reserva': 'Reject Reservation',
+        'Código QR no encontrado': 'QR Code not found',
+        '¿Aún no tienes cuenta?': 'Don\'t have an account?',
+        'Regístrate aquí': 'Register here',
+        'Por favor ingresa tu nombre completo': 'Please enter your full name',
+        'El usuario debe tener al menos 4 caracteres': 'Username must be at least 4 characters',
+        'Este campo es obligatorio': 'This field is mandatory',
+        'Repite tu contraseña': 'Repeat your password',
+        '¿Ya tienes cuenta?': 'Already have an account?',
+        'Inicia sesión aquí': 'Login here',
+        'Clave de Trabajador': 'Worker ID',
+        'CURP': 'CURP',
+        'Motocicleta': 'Motorcycle',
+        'Camioneta': 'Pickup Truck',
+        'No tienes reservas activas.': 'You have no active reservations.',
+        'Ingrese su matrícula': 'Enter your driver\'s ID',
+        'Ingrese su clave de trabajador': 'Enter your worker ID',
+        'Ingrese su CURP': 'Enter your CURP',
+        'Atención': 'Attention',
+        'Por favor, completa el campo': 'Please complete the field',
+        'Favor de rellenar los campos solicitados': 'Please fill in the requested fields',
+
+        // ===== LEYENDA DE COLORES =====
+        'Glosario': 'Legend',
+        'Pendiente de Aprobación': 'Pending Approval',
 
         // ===== ADMIN =====
         'Admin Dashboard': 'Admin Dashboard',
@@ -350,88 +436,82 @@ const translations = {
         'Editar': 'Edit',
         'Volver': 'Back',
         'Cargando...': 'Loading...',
-        'Cargando': 'Loading',
-        'Desconocido': 'Unknown',
-        'Ver código QR': 'View QR Code',
-        'Aprobar': 'Approve',
-        'Rechazar': 'Reject',
-        'Liberar': 'Release',
-        'Solicitado': 'Requested',
-        'Aprobado': 'Approved',
-        'Tu reserva ha sido rechazada.': 'Your reservation has been rejected.',
-        'No tienes reservas activas.': 'You have no active reservations.',
-        'Verificación de QR': 'QR Verification',
-        'Estado': 'Status',
-        'Hora de Solicitud': 'Request Time',
-        'Aprobar Reserva': 'Approve Reservation',
-        'Rechazar Reserva': 'Reject Reservation',
-        'Código QR no encontrado': 'QR Code not found',
-        '¿Ya tienes cuenta?': 'Already have an account?',
-        'Inicia sesión aquí': 'Log in here',
-        'Clave de Trabajador': 'Worker ID',
-        'Ingrese su clave de trabajador': 'Enter your worker ID',
-        'Ingrese su matrícula': 'Enter your license plate',
-        'CURP': 'CURP',
-        'Ingrese su CURP': 'Enter your CURP',
+        'Credenciales incorrectas': 'Incorrect credentials',
+        'Inicio de sesión exitoso': 'Login successful',
+        'Has cerrado sesión': 'You have logged out',
+        'Registro completado': 'Registration completed',
+        'Reserva aprobada': 'Reservation approved',
+        'Reserva rechazada': 'Reservation rejected',
+        'Puesto liberado': 'Spot released',
+        'Error al reservar': 'Error reserving',
+        'Usuario no encontrado': 'User not found',
+        'Contraseña incorrecta': 'Incorrect password',
+        'Oops...': 'Oops...',
+        'Algo salió mal': 'Something went wrong',
+        'Bienvenido al panel de administración': 'Welcome to the administration panel',
+        'Sesión cerrada correctamente': 'Session closed successfully',
     }
 };
 
-    // Función principal de traducción
-    function translatePageContent(lang) {
-        const dict = translations[lang] || translations['es'];
+/**
+ * Función para traducir el contenido HTML de la página
+ * Usa atributos data-i18n para una traducción precisa y eficiente
+ */
+function translatePageContent(lang) {
+    const dict = translations[lang] || translations['es'];
 
-        // 1. Traducir elementos con data-i18n
-        const i18nElements = document.querySelectorAll('[data-i18n]');
-        for (const element of i18nElements) {
-            const key = element.dataset.i18n;
-            if (dict[key]) {
-                // Si es un input, traducir placeholder
-                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                    element.placeholder = dict[key];
-                } else if (element.tagName === 'OPTION') {
-                    element.textContent = dict[key];
+    // 1. Traducir elementos con data-i18n
+    const i18nElements = document.querySelectorAll('[data-i18n]');
+    for (const element of i18nElements) {
+        const key = element.dataset.i18n;
+        if (dict[key]) {
+            // Si es un input, traducir placeholder
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = dict[key];
+            } else if (element.tagName === 'OPTION') {
+                element.textContent = dict[key];
+            } else {
+                // Mantener HTML interno si es necesario (para iconos, etc)
+                // Si tiene data-i18n-html="true", usar innerHTML, si no textContent
+                if (element.dataset.i18nHtml === 'true') {
+                    element.innerHTML = dict[key];
                 } else {
-                    // Mantener HTML interno si es necesario (para iconos, etc)
-                    // Si tiene data-i18n-html="true", usar innerHTML, si no textContent
-                    if (element.dataset.i18nHtml === 'true') {
-                        element.innerHTML = dict[key];
-                    } else {
-                        element.textContent = dict[key];
-                    }
+                    element.textContent = dict[key];
                 }
             }
         }
-
-        // 2. Traducir atributos específicos (alt, title, aria-label)
-        const altElements = document.querySelectorAll('[data-i18n-alt]');
-        for (const element of altElements) {
-            const key = element.dataset.i18nAlt;
-            if (dict[key]) element.alt = dict[key];
-        }
-
-        const titleElements = document.querySelectorAll('[data-i18n-title]');
-        for (const element of titleElements) {
-            const key = element.dataset.i18nTitle;
-            if (dict[key]) element.title = dict[key];
-        }
-
-        const ariaLabelElements = document.querySelectorAll('[data-i18n-aria-label]');
-        for (const element of ariaLabelElements) {
-            const key = element.dataset.i18nAriaLabel;
-            if (dict[key]) element.setAttribute('aria-label', dict[key]);
-        }
-
-        console.log(`✓ Página traducida a: ${lang}`);
     }
 
-    // Exponer funciones globalmente
-    globalThis.translatePageContent = translatePageContent;
-    globalThis.translations = translations;
+    // 2. Traducir atributos específicos (alt, title, aria-label)
+    const altElements = document.querySelectorAll('[data-i18n-alt]');
+    for (const element of altElements) {
+        const key = element.dataset.i18nAlt;
+        if (dict[key]) element.alt = dict[key];
+    }
 
-    // Inicializar traducción al cargar
-    document.addEventListener('DOMContentLoaded', () => {
-        const savedLang = localStorage.getItem('app_language') || 'es';
-        if (savedLang !== 'es') {
-            translatePageContent(savedLang);
-        }
-    });
+    const titleElements = document.querySelectorAll('[data-i18n-title]');
+    for (const element of titleElements) {
+        const key = element.dataset.i18nTitle;
+        if (dict[key]) element.title = dict[key];
+    }
+
+    const ariaLabelElements = document.querySelectorAll('[data-i18n-aria-label]');
+    for (const element of ariaLabelElements) {
+        const key = element.dataset.i18nAriaLabel;
+        if (dict[key]) element.setAttribute('aria-label', dict[key]);
+    }
+
+    console.log(`✓ Página traducida a: ${lang}`);
+}
+
+// Exponer funciones globalmente
+globalThis.translatePageContent = translatePageContent;
+globalThis.translations = translations;
+
+// Inicializar traducción al cargar
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('app_language') || 'es';
+    if (savedLang !== 'es') {
+        translatePageContent(savedLang);
+    }
+});

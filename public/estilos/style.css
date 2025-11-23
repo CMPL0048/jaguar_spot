@@ -60,23 +60,31 @@ nav ul {
     display: flex;
     margin: 0;
     padding: 0;
+    gap: 8px;
 }
 
 nav ul li {
-    margin-left: 20px; /* Espacio entre los elementos de la lista */
+    margin-left: 0;
 }
 
 nav ul li a {
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-    color: rgb(243, 217, 184); /* Color de los enlaces */
-    font-size: 18px;
-    transition: color 0.3s; /* Efecto de transición en el color */
+    text-decoration: none;
+    color: rgb(243, 217, 184);
+    font-size: 16px;
+    transition: color 0.3s;
     font-family: 'Raleway', sans-serif;
     font-weight: 200;
+    padding: 8px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
 nav ul li a:hover {
-    color: rgb(207, 163, 107); /* Color del enlace al pasar el mouse */
+    color: rgb(207, 163, 107);
+    background-color: rgba(243, 217, 184, 0.05);
 }
 
 .curved-green {
@@ -149,11 +157,11 @@ nav ul li a:hover {
     width: 250px;
     height: 50px; /* Agregar altura para que flex funcione bien */
     margin: 0 auto; /* Centrar en el contenedor */
-    
+
     font-family: 'Raleway', sans-serif;
     font-size: 20px;
     font-weight: 800;
-    
+
     background: linear-gradient(rgb(57, 53, 46), rgb(35, 33, 29));
     color: white; /* Para que el texto sea visible */
     border: none;
@@ -161,8 +169,8 @@ nav ul li a:hover {
     cursor: pointer;
     text-decoration: none; /* Si lo usas en un <a> */
     text-align: center;
-    
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out; 
+
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .btn:hover {
@@ -175,36 +183,29 @@ nav ul li a:hover {
     width: 28px;
     margin: 0;
     padding: 0;
-} 
+}
 
 .logout-link {
     background: none;
     border: none;
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-    color: rgb(243, 217, 184); /* Color de los enlaces */
-    font-size: 18px;
-    transition: color 0.3s; /* Efecto de transición en el color */
+    text-decoration: none;
+    color: rgb(243, 217, 184);
+    font-size: 16px;
+    transition: color 0.3s;
     font-family: 'Raleway', sans-serif;
     font-weight: 200;
-    padding: 0;
+    padding: 8px 12px;
     cursor: pointer;
+    border-radius: 6px;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .logout-link:hover {
-    color: rgb(207, 163, 107); /* Color del enlace al pasar el mouse */
-}
-
-/* Estilo para el botón de cerrar sesión */
-.logout-link {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.logout-link:hover {
-    color: #ff4444;
+    color: rgb(207, 163, 107);
+    background-color: rgba(243, 217, 184, 0.05);
 }
 
 /* =========================

@@ -305,6 +305,8 @@
         function validateStep(step) {
             let isValid = true;
             const currentStepElement = document.querySelector(`.form-step[data-step="${step}"]`);
+            let firstErrorInput = null;
+            let errorCount = 0;
 
             if (!currentStepElement) {
                 console.error('Step not found:', step);
@@ -318,9 +320,47 @@
                 if (input.offsetParent !== null) {
                     if (!validateInput(input)) {
                         isValid = false;
+                        errorCount++;
+                        if (!firstErrorInput) firstErrorInput = input;
                     }
                 }
             });
+
+            if (!isValid) {
+                const currentLang = localStorage.getItem('app_language') || 'es';
+                const dict = window.translations && window.translations[currentLang] ? window.translations[currentLang] : (window.translations ? window.translations['es'] : null);
+                const t = (key) => (dict && dict[key]) ? dict[key] : key;
+
+                let title = t('Atención');
+                let text = '';
+
+                if (errorCount > 1) {
+                    // Mensaje genérico para múltiples errores
+                    text = t('Favor de rellenar los campos solicitados');
+                } else if (firstErrorInput) {
+                    // Mensaje específico para un solo error
+                    let fieldName = firstErrorInput.name;
+                    const label = document.querySelector(`label[for="${firstErrorInput.id}"]`);
+                    if (label) {
+                        const i18nSpan = label.querySelector('[data-i18n]');
+                        if (i18nSpan) {
+                            fieldName = i18nSpan.dataset.i18n;
+                        } else {
+                            fieldName = label.innerText.replace('*', '').trim();
+                        }
+                    }
+                    const translatedFieldName = t(fieldName);
+                    text = `${t('Por favor, completa el campo')}: ${translatedFieldName}`;
+                }
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: title,
+                    text: text,
+                    confirmButtonColor: '#f39c12',
+                    confirmButtonText: t('Aceptar')
+                });
+            }
 
             return isValid;
         }

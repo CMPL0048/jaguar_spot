@@ -25,22 +25,38 @@
 
         @if (session('success'))
             <script>
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Éxito',
-                    text: "{{ session('success') }}",
-                    confirmButtonColor: '#28a745'
+                document.addEventListener("DOMContentLoaded", function() {
+                    const msg = "{{ session('success') }}";
+                    const currentLang = localStorage.getItem('app_language') || 'es';
+                    const dict = window.translations && window.translations[currentLang] ? window.translations[currentLang] : (window.translations ? window.translations['es'] : null);
+                    const translatedMsg = (dict && dict[msg]) ? dict[msg] : msg;
+                    const title = currentLang === 'en' ? 'Success' : 'Éxito';
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: title,
+                        text: translatedMsg,
+                        confirmButtonColor: '#28a745'
+                    });
                 });
             </script>
         @endif
 
         @if (session('error'))
             <script>
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: "{{ session('error') }}",
-                    confirmButtonColor: '#d33'
+                document.addEventListener("DOMContentLoaded", function() {
+                    const msg = "{{ session('error') }}";
+                    const currentLang = localStorage.getItem('app_language') || 'es';
+                    const dict = window.translations && window.translations[currentLang] ? window.translations[currentLang] : (window.translations ? window.translations['es'] : null);
+                    const translatedMsg = (dict && dict[msg]) ? dict[msg] : msg;
+                    const title = currentLang === 'en' ? 'Oops...' : 'Oops...';
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: title,
+                        text: translatedMsg,
+                        confirmButtonColor: '#d33'
+                    });
                 });
             </script>
         @endif

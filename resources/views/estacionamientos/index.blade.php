@@ -29,7 +29,7 @@
 
 @section('contenido')
     <div class="container">
-        <h1 class="title">🚗 <span data-i18n="🚗 Estacionamientos Disponibles">🚗 Estacionamientos Disponibles</span></h1>
+        <h1 class="title">🚗 <span data-i18n="Estacionamientos Disponibles">Estacionamientos Disponibles</span> 🚗</h1>
 
         <div class="map-container">
             <div id="mapa-container">

@@ -41,12 +41,18 @@
     @if (session('error'))
         <script>
             document.addEventListener("DOMContentLoaded", function() {
+                const msg = "{{ session('error') }}";
+                const currentLang = localStorage.getItem('app_language') || 'es';
+                const dict = window.translations && window.translations[currentLang] ? window.translations[currentLang] : (window.translations ? window.translations['es'] : null);
+                const translatedMsg = (dict && dict[msg]) ? dict[msg] : msg;
+                const title = currentLang === 'en' ? 'Error' : 'Error';
+
                 Swal.fire({
                     icon: 'error',
-                    title: 'Error',
-                    text: "{{ session('error') }}",
+                    title: title,
+                    text: translatedMsg,
                     confirmButtonColor: '#d33',
-                    confirmButtonText: 'Cerrar'
+                    confirmButtonText: currentLang === 'en' ? 'Close' : 'Cerrar'
                 });
             });
         </script>
@@ -55,13 +61,43 @@
     <h1 class="titulo-estacionamiento" data-i18n="{{ $estacionamiento->nombre }}">{{ $estacionamiento->nombre }}</h1>
     <h2 class="subtitulo-estacionamiento" data-i18n="Selecciona un Puesto">Selecciona un Puesto</h2>
 
+    <!-- Leyenda de Colores -->
+    <div class="legend-container">
+        <div class="legend-items">
+            <div class="legend-item">
+                <div class="legend-color disponible"></div>
+                <span data-i18n="Disponible">Disponible</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color pendiente"></div>
+                <span data-i18n="Pendiente de Aprobación">Pendiente de Aprobación</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color ocupado"></div>
+                <span data-i18n="Ocupado">Ocupado</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color discapacitado"></div>
+                <span data-i18n="Discapacitado">Discapacitado</span>
+            </div>
+        </div>
+    </div>
+
     <div class="parking-lot">
         @foreach ($estacionamiento->puestos as $puesto)
             <form action="{{ route('puestos.reservar', $puesto->id) }}" method="POST" class="puesto-form">
                 @csrf
                 <button type="submit"
+                    data-estado="{{ $puesto->estado }}"
+                    data-tipo="{{ $puesto->tipo }}"
                     class="puesto
-                        {{ $puesto->estado === 'aceptado' ? 'ocupado' : ($puesto->tipo === 'discapacitado' ? 'discapacitado' : 'disponible') }}">
+                        @if($puesto->estado === 'aceptado')
+                            ocupado
+                        @elseif($puesto->estado === 'pendiente')
+                            pendiente
+                        @else
+                            {{ $puesto->tipo === 'discapacitado' ? 'discapacitado' : 'disponible' }}
+                        @endif">
 
                     <i class="{{ $puesto->tipo === 'discapacitado' ? 'fa-solid fa-wheelchair' : 'fa-solid fa-car' }}"></i>
                     <span>{{ $puesto->numero_puesto }}</span>

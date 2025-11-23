@@ -1,7 +1,7 @@
 /* === ESTILOS PARA: puestos.css === */
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     color: white;
     text-align: center;
 }
@@ -16,7 +16,7 @@ body {
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 20px;
-    color: #B0B0B0;
+    color: #b0b0b0;
 }
 
 /* Contenedor de puestos */
@@ -50,19 +50,24 @@ body {
     margin-bottom: 5px;
 }
 
-/* Colores por tipo de puesto */
+/* Colores por estado de puesto - Sistema de Semáforo */
 .puesto.disponible {
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Verde - Disponible */
     color: white;
 }
 
+.puesto.pendiente {
+    background-color: #FF9800 !important; /* Naranja - En proceso de confirmación */
+    color: white !important;
+}
+
 .puesto.ocupado {
-    background-color: #D32F2F;
+    background-color: #D32F2F; /* Rojo - Ocupado */
     color: white;
 }
 
 .puesto.discapacitado {
-    background-color: #1976D2;
+    background-color: #1976D2; /* Azul - Discapacitado */
     color: white;
 }
 
@@ -70,25 +75,90 @@ body {
     transform: scale(1.1);
 }
 
+/* Leyenda de Colores */
+.legend-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 25px;
+    margin: 20px auto;
+    padding: 15px 25px;
+    max-width: 1200px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.legend-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+    color: #FFD700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.legend-items {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.legend-color {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    flex-shrink: 0;
+}
+
+.legend-color.disponible {
+    background-color: #4CAF50;
+}
+
+.legend-color.pendiente {
+    background-color: #FF9800;
+}
+
+.legend-color.ocupado {
+    background-color: #D32F2F;
+}
+
+.legend-color.discapacitado {
+    background-color: #1976D2;
+}
+
 /* Navbar de estacionamientos */
 .navbar-estacionamientos {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    background-color: #1E1E1E;
-    padding: 10px 0;
+    align-items: center;
+    gap: 12px;
+    background-color: #1e1e1e;
+    padding: 12px 20px;
     border-radius: 10px;
     margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
 .navbar-estacionamientos .nav-link {
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 10px 18px;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
-    color: #B0B0B0;
+    color: #b0b0b0;
     transition: all 0.3s ease-in-out;
+    white-space: nowrap;
+    min-width: fit-content;
 }
 
 .navbar-estacionamientos .nav-link:hover {
@@ -97,7 +167,7 @@ body {
 }
 
 .navbar-estacionamientos .nav-link.active {
-    background-color: #4CAF50;
+    background-color: #4caf50;
     color: white;
     pointer-events: none;
 }
